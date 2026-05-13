@@ -3,112 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مراجعة لغتي الجميلة - عبدالله العرفج</title>
+<title>مراجعة لغتي - عبدالله العرفج</title>
 <style>
-:root{--green:#4CAF50;--blue:#2196F3;--yellow:#FFF9C4;--white:#FFF;--gray:#F5F5F5;--dark:#333}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#E8F5E9 0%,#E3F2FD 100%);color:var(--dark);font-size:14px;line-height:1.5}
-.hidden{display:none!important}
-.welcome{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;color:var(--white);position:relative}
-.welcome-icon{font-size:4em;margin-bottom:20px;animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
-.welcome h1{font-size:2.5em;margin-bottom:15px}
-.welcome h2{font-size:1.5em;margin-bottom:30px}
-.info-box{background:rgba(255,255,255,0.2);padding:25px;border-radius:15px;margin-bottom:25px;max-width:650px}
-.info-box p{font-size:1.05em;margin:10px 0}
-.student-box{background:var(--white);color:var(--dark);padding:20px;border-radius:12px;margin-bottom:25px;max-width:450px}
-.student-box h3{color:var(--green);font-size:1.3em;margin-bottom:12px}
-.student-box p{font-size:1.05em;margin:8px 0}
-.input-box{background:var(--white);color:var(--dark);padding:25px;border-radius:12px;text-align:center}
-.input-box p{font-size:1.2em;color:var(--green);font-weight:bold;margin-bottom:15px}
-.name-input{padding:15px 25px;font-size:1.15em;border:3px solid var(--green);border-radius:10px;width:100%;max-width:350px;text-align:center;margin:12px 0}
-.name-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 12px rgba(33,150,243,0.3)}
-.start-btn{background:linear-gradient(135deg,var(--blue) 0%,#64B5F6 100%);color:var(--white);padding:15px 50px;border:none;border-radius:10px;font-size:1.25em;font-weight:bold;cursor:pointer;margin-top:15px;box-shadow:0 5px 15px rgba(0,0,0,0.25);transition:all 0.3s}
-.start-btn:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(0,0,0,0.3)}
-.footer{position:absolute;bottom:20px;font-size:0.95em}
-.home-header{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);color:var(--white);padding:25px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.15)}
-.home-icon{font-size:2.5em;margin-bottom:10px}
-.home-header h1{font-size:1.8em;margin-bottom:8px}
-.home-header h2{font-size:1.1em;margin-bottom:12px;opacity:0.95}
-.student-name{background:rgba(255,255,255,0.25);padding:8px 20px;border-radius:8px;display:inline-block;margin:8px 0;font-size:1em;font-weight:bold}
-.teacher-info{background:rgba(255,255,255,0.15);padding:6px 15px;border-radius:6px;margin-top:8px;font-size:0.85em}
-.sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:30px 25px;max-width:1200px;margin:0 auto}
-.card{background:var(--white);border:3px solid var(--green);border-radius:15px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 10px rgba(0,0,0,0.08)}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.15);border-width:4px}
-.card:nth-child(even){border-color:var(--blue)}
-.card-icon{font-size:2.5em;margin-bottom:12px}
-.card-title{font-size:1.2em;color:var(--green);margin-bottom:6px;font-weight:bold}
-.card:nth-child(even) .card-title{color:var(--blue)}
-.card-desc{font-size:0.85em;color:#888}
-.page{display:none;min-height:100vh;padding:25px;max-width:1100px;margin:0 auto}
-.page.active{display:block;animation:fadeIn 0.3s}
-@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-.page-header{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);color:var(--white);padding:25px;border-radius:15px;margin-bottom:25px;text-align:center}
-.page-title{font-size:2em;margin-bottom:10px}
-.page-subtitle{font-size:1.1em;opacity:0.9}
-.progress-box{background:rgba(255,255,255,0.2);padding:15px;border-radius:12px;margin-top:15px}
-.score{font-size:1.2em;font-weight:bold;margin-bottom:12px}
-.progress-bar{background:rgba(255,255,255,0.3);height:25px;border-radius:12px;overflow:hidden}
-.progress{background:linear-gradient(90deg,#FFC107 0%,#FFD54F 100%);height:100%;width:0%;border-radius:12px;transition:width 0.5s;display:flex;align-items:center;justify-content:center;font-weight:bold;color:var(--dark)}
-.content{background:var(--white);padding:25px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
-.content-title{font-size:1.6em;color:var(--green);margin-bottom:18px;padding-bottom:12px;border-bottom:3px solid var(--yellow)}
-.text-content{background:#FFFDE7;padding:20px;border-radius:10px;border-right:4px solid var(--green);font-size:1.05em;line-height:1.8}
-.highlight{background:#E3F2FD;padding:3px 8px;border-radius:4px;font-weight:bold;color:var(--blue)}
-.exercise{background:var(--gray);padding:20px;border-radius:10px;margin-bottom:20px;border-right:4px solid var(--blue)}
-.question{font-size:1.2em;font-weight:bold;margin-bottom:15px}
-.q-num{background:var(--green);color:var(--white);padding:6px 12px;border-radius:50%;display:inline-block;margin-left:12px}
-.options{display:grid;gap:12px;margin:15px 0}
-.option{background:var(--white);border:2px solid var(--green);padding:15px 20px;border-radius:8px;cursor:pointer;transition:all 0.3s;font-size:1.05em;text-align:center;font-weight:500}
-.option:hover:not(:disabled){background:var(--yellow);transform:translateX(-5px)}
-.option:disabled{cursor:not-allowed;opacity:0.7}
-.option.correct{background:var(--green);color:var(--white);animation:pulse 0.5s}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.option.wrong{background:#f44336;color:var(--white);animation:shake 0.5s}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
-.feedback{margin-top:15px;padding:15px;border-radius:8px;font-weight:bold;text-align:center;display:none;font-size:1.05em}
-.feedback.success{background:#C8E6C9;color:#2E7D32;border:2px solid var(--green)}
-.feedback.error{background:#FFCDD2;color:#C62828;border:2px solid #f44336}
-.feedback.show{display:block;animation:slideDown 0.3s}
-@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-.game{background:var(--gray);padding:25px;border-radius:12px;margin:20px 0}
-.game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
-.game-score,.game-timer{background:var(--green);color:var(--white);padding:10px 20px;border-radius:8px;font-weight:bold;font-size:1.15em}
-.game-timer{background:var(--blue)}
-.game-grid{display:grid;gap:15px;margin:20px 0}
-.game-card{background:var(--white);border:3px solid var(--green);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;font-size:1.15em;font-weight:bold}
-.game-card:hover{transform:scale(1.05);box-shadow:0 5px 15px rgba(0,0,0,0.15)}
-.game-card.matched{background:var(--green);color:var(--white);pointer-events:none}
-.game-card.selected{background:var(--yellow);border-color:var(--blue)}
-.btn{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);color:var(--white);padding:14px 40px;border:none;border-radius:10px;font-size:1.15em;font-weight:bold;cursor:pointer;margin:20px auto;display:block;box-shadow:0 4px 15px rgba(0,0,0,0.2);transition:all 0.3s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.25)}
-.btn:disabled{opacity:0.5;cursor:not-allowed}
-.btn-back{background:linear-gradient(135deg,var(--blue) 0%,#64B5F6 100%);padding:12px 30px;font-size:1.05em}
-.btn-submit{background:linear-gradient(135deg,#FF9800 0%,#FFB74D 100%);padding:18px 55px;font-size:1.35em}
-.stars{text-align:center;margin:20px 0;font-size:2em}
-.star{color:#FFD700;margin:0 5px;display:inline-block;animation:starPop 0.5s}
-@keyframes starPop{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
-.quiz{max-width:950px;margin:0 auto}
-.quiz-q{background:var(--white);border:2px solid #E0E0E0;border-radius:12px;padding:25px;margin-bottom:25px;box-shadow:0 3px 12px rgba(0,0,0,0.08)}
-.quiz-num{background:var(--blue);color:var(--white);padding:8px 18px;border-radius:8px;display:inline-block;margin-bottom:15px;font-weight:bold;font-size:1.05em}
-.quiz-option{background:var(--gray);padding:15px 20px;margin:10px 0;border-radius:8px;cursor:pointer;transition:all 0.3s;border:2px solid transparent;display:flex;align-items:center;gap:15px;font-size:1.05em}
-.quiz-option:hover{background:var(--yellow);border-color:var(--green)}
-.quiz-option input{width:20px;height:20px;cursor:pointer}
-.results{background:linear-gradient(135deg,#E8F5E9 0%,#C8E6C9 100%);padding:45px;border-radius:20px;text-align:center;margin:35px 0;box-shadow:0 10px 35px rgba(0,0,0,0.25)}
-.results-emoji{font-size:5em;margin-bottom:20px}
-.results-score{font-size:3.5em;color:var(--green);font-weight:bold;margin:20px 0}
-.results-msg{font-size:1.6em;margin:15px 0;font-weight:bold}
-.results-percent{font-size:2.2em;color:var(--blue);margin:12px 0}
-.certificate{background:var(--white);border:10px double var(--green);border-radius:20px;padding:50px;margin:35px auto;max-width:850px;text-align:center;box-shadow:0 12px 45px rgba(0,0,0,0.3);position:relative}
-.certificate::before{content:'🏆';font-size:4em;position:absolute;top:-35px;left:50%;transform:translateX(-50%);background:var(--white);padding:12px 25px;border-radius:50%}
-.cert-title{font-size:2.5em;color:var(--green);margin:35px 0 20px;font-weight:bold}
-.cert-subtitle{font-size:1.3em;color:#666;margin-bottom:30px}
-.cert-name{font-size:2.2em;color:var(--blue);margin:25px 0;padding:15px 35px;border-bottom:3px solid var(--green);display:inline-block;font-weight:bold}
-.cert-details{font-size:1.25em;margin:20px 0;line-height:1.8}
-.cert-score{font-size:2.8em;color:var(--green);font-weight:bold;margin:25px 0}
-.cert-date{font-size:1.05em;color:#999;margin-top:30px}
-.cert-footer{margin-top:45px;padding-top:20px;border-top:2px solid #E0E0E0;font-size:1em;color:#666}
-@media(max-width:768px){body{font-size:13px}.sections{grid-template-columns:1fr}.page{padding:18px}.certificate{padding:30px 18px}}
-@media print{.btn,.btn-back,.btn-submit{display:none}}
+:root{--green:#4CAF50;--blue:#2196F3;--yellow:#FFF9C4;--white:#FFF;--gray:#F5F5F5;--dark:#333}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#E8F5E9 0%,#E3F2FD 100%);color:var(--dark);font-size:14px;line-height:1.5}.hidden{display:none!important}.welcome{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;color:var(--white);position:relative}.welcome-icon{font-size:4em;margin-bottom:20px;animation:bounce 2s infinite}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}.welcome h1{font-size:2.5em;margin-bottom:15px}.welcome h2{font-size:1.5em;margin-bottom:30px}.info-box{background:rgba(255,255,255,0.2);padding:25px;border-radius:15px;margin-bottom:25px;max-width:650px}.info-box p{font-size:1.05em;margin:10px 0}.student-box{background:var(--white);color:var(--dark);padding:20px;border-radius:12px;margin-bottom:25px;max-width:450px}.student-box h3{color:var(--green);font-size:1.3em;margin-bottom:12px}.student-box p{font-size:1.05em;margin:8px 0}.input-box{background:var(--white);color:var(--dark);padding:25px;border-radius:12px;text-align:center}.input-box p{font-size:1.2em;color:var(--green);font-weight:bold;margin-bottom:15px}.name-input{padding:15px 25px;font-size:1.15em;border:3px solid var(--green);border-radius:10px;width:100%;max-width:350px;text-align:center;margin:12px 0}.name-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 12px rgba(33,150,243,0.3)}.start-btn{background:linear-gradient(135deg,var(--blue) 0%,#64B5F6 100%);color:var(--white);padding:15px 50px;border:none;border-radius:10px;font-size:1.25em;font-weight:bold;cursor:pointer;margin-top:15px;box-shadow:0 5px 15px rgba(0,0,0,0.25);transition:all 0.3s}.start-btn:hover{transform:translateY(-2px)}.footer{position:absolute;bottom:20px;font-size:0.95em}.home-header{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);color:var(--white);padding:25px 20px;text-align:center}.home-icon{font-size:2.5em;margin-bottom:10px}.home-header h1{font-size:1.8em;margin-bottom:8px}.home-header h2{font-size:1.1em;margin-bottom:12px}.student-name{background:rgba(255,255,255,0.25);padding:8px 20px;border-radius:8px;display:inline-block;margin:8px 0;font-size:1em;font-weight:bold}.teacher-info{background:rgba(255,255,255,0.15);padding:6px 15px;border-radius:6px;margin-top:8px;font-size:0.85em}.sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:30px 25px;max-width:1200px;margin:0 auto}.card{background:var(--white);border:3px solid var(--green);border-radius:15px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 10px rgba(0,0,0,0.08)}.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}.card:nth-child(even){border-color:var(--blue)}.card-icon{font-size:2.5em;margin-bottom:12px}.card-title{font-size:1.2em;color:var(--green);margin-bottom:6px;font-weight:bold}.card:nth-child(even) .card-title{color:var(--blue)}.card-desc{font-size:0.85em;color:#888}.page{display:none;min-height:100vh;padding:25px;max-width:1100px;margin:0 auto}.page.active{display:block;animation:fadeIn 0.3s}@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}.page-header{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);color:var(--white);padding:25px;border-radius:15px;margin-bottom:25px;text-align:center}.page-title{font-size:2em;margin-bottom:10px}.page-subtitle{font-size:1.1em}.progress-box{background:rgba(255,255,255,0.2);padding:15px;border-radius:12px;margin-top:15px}.score{font-size:1.2em;font-weight:bold;margin-bottom:12px}.progress-bar{background:rgba(255,255,255,0.3);height:25px;border-radius:12px;overflow:hidden}.progress{background:linear-gradient(90deg,#FFC107 0%,#FFD54F 100%);height:100%;width:0%;border-radius:12px;transition:width 0.5s;display:flex;align-items:center;justify-content:center;font-weight:bold;color:var(--dark)}.content{background:var(--white);padding:25px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08)}.content-title{font-size:1.6em;color:var(--green);margin-bottom:18px;padding-bottom:12px;border-bottom:3px solid var(--yellow)}.text-content{background:#FFFDE7;padding:20px;border-radius:10px;border-right:4px solid var(--green);font-size:1.05em;line-height:1.8}.highlight{background:#E3F2FD;padding:3px 8px;border-radius:4px;font-weight:bold;color:var(--blue)}.exercise{background:var(--gray);padding:20px;border-radius:10px;margin-bottom:20px;border-right:4px solid var(--blue)}.question{font-size:1.2em;font-weight:bold;margin-bottom:15px}.q-num{background:var(--green);color:var(--white);padding:6px 12px;border-radius:50%;display:inline-block;margin-left:12px}.options{display:grid;gap:12px;margin:15px 0}.option{background:var(--white);border:2px solid var(--green);padding:15px 20px;border-radius:8px;cursor:pointer;transition:all 0.3s;font-size:1.05em;text-align:center;font-weight:500}.option:hover:not(:disabled){background:var(--yellow);transform:translateX(-5px)}.option:disabled{cursor:not-allowed;opacity:0.7}.option.correct{background:var(--green);color:var(--white);animation:pulse 0.5s}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}.option.wrong{background:#f44336;color:var(--white);animation:shake 0.5s}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}.feedback{margin-top:15px;padding:15px;border-radius:8px;font-weight:bold;text-align:center;display:none;font-size:1.05em}.feedback.success{background:#C8E6C9;color:#2E7D32;border:2px solid var(--green)}.feedback.error{background:#FFCDD2;color:#C62828;border:2px solid #f44336}.feedback.show{display:block;animation:slideDown 0.3s}@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.game{background:var(--gray);padding:25px;border-radius:12px;margin:20px 0}.game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}.game-score{background:var(--green);color:var(--white);padding:10px 20px;border-radius:8px;font-weight:bold;font-size:1.15em}.game-grid{display:grid;gap:15px;margin:20px 0}.game-card{background:var(--white);border:3px solid var(--green);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;font-size:1.15em;font-weight:bold}.game-card:hover{transform:scale(1.05)}.game-card.matched{background:var(--green);color:var(--white);pointer-events:none}.game-card.selected{background:var(--yellow);border-color:var(--blue)}.btn{background:linear-gradient(135deg,var(--green) 0%,#66BB6A 100%);color:var(--white);padding:14px 40px;border:none;border-radius:10px;font-size:1.15em;font-weight:bold;cursor:pointer;margin:20px auto;display:block;box-shadow:0 4px 15px rgba(0,0,0,0.2);transition:all 0.3s}.btn:hover{transform:translateY(-2px)}.btn-back{background:linear-gradient(135deg,var(--blue) 0%,#64B5F6 100%);padding:12px 30px;font-size:1.05em}.btn-submit{background:linear-gradient(135deg,#FF9800 0%,#FFB74D 100%);padding:18px 55px;font-size:1.35em}.quiz{max-width:950px;margin:0 auto}.quiz-q{background:var(--white);border:2px solid #E0E0E0;border-radius:12px;padding:25px;margin-bottom:25px;box-shadow:0 3px 12px rgba(0,0,0,0.08)}.quiz-num{background:var(--blue);color:var(--white);padding:8px 18px;border-radius:8px;display:inline-block;margin-bottom:15px;font-weight:bold;font-size:1.05em}.quiz-option{background:var(--gray);padding:15px 20px;margin:10px 0;border-radius:8px;cursor:pointer;transition:all 0.3s;border:2px solid transparent;display:flex;align-items:center;gap:15px;font-size:1.05em}.quiz-option:hover{background:var(--yellow);border-color:var(--green)}.quiz-option input{width:20px;height:20px;cursor:pointer}.results{background:linear-gradient(135deg,#E8F5E9 0%,#C8E6C9 100%);padding:45px;border-radius:20px;text-align:center;margin:35px 0;box-shadow:0 10px 35px rgba(0,0,0,0.25)}.results-emoji{font-size:5em;margin-bottom:20px}.results-score{font-size:3.5em;color:var(--green);font-weight:bold;margin:20px 0}.results-msg{font-size:1.6em;margin:15px 0;font-weight:bold}.results-percent{font-size:2.2em;color:var(--blue);margin:12px 0}.certificate{background:var(--white);border:10px double var(--green);border-radius:20px;padding:50px;margin:35px auto;max-width:850px;text-align:center;box-shadow:0 12px 45px rgba(0,0,0,0.3);position:relative}.certificate::before{content:'🏆';font-size:4em;position:absolute;top:-35px;left:50%;transform:translateX(-50%);background:var(--white);padding:12px 25px;border-radius:50%}.cert-title{font-size:2.5em;color:var(--green);margin:35px 0 20px;font-weight:bold}.cert-subtitle{font-size:1.3em;color:#666;margin-bottom:30px}.cert-name{font-size:2.2em;color:var(--blue);margin:25px 0;padding:15px 35px;border-bottom:3px solid var(--green);display:inline-block;font-weight:bold}.cert-details{font-size:1.25em;margin:20px 0;line-height:1.8}.cert-score{font-size:2.8em;color:var(--green);font-weight:bold;margin:25px 0}.cert-date{font-size:1.05em;color:#999;margin-top:30px}.cert-footer{margin-top:45px;padding-top:20px;border-top:2px solid #E0E0E0;font-size:1em;color:#666}@media(max-width:768px){body{font-size:13px}.sections{grid-template-columns:1fr}.page{padding:18px}.certificate{padding:30px 18px}}
 </style>
 </head>
 <body>
@@ -119,9 +16,8 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-g
 <h2>مراجعة شاملة</h2>
 <div class="info-box">
 <p><strong>📖 الوحدة الرابعة: مجالس علم</strong></p>
-<p>✅ الفهم القرائي + المرادفات والأضداد</p>
-<p>✅ الاستفهام + الألف اللينة + المفعول المطلق</p>
-<p>✅ 7 ألعاب + اختبار 30 سؤال</p>
+<p>✅ 5 أقسام دراسية + 3 ألعاب تفاعلية</p>
+<p>✅ اختبار 30 سؤال + شهادة تميز</p>
 </div>
 <div class="student-box">
 <h3>📌 معلومات البرنامج</h3>
@@ -133,7 +29,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-g
 <p>👨‍🎓 اكتب اسمك للبدء</p>
 <input type="text" id="nameInput" class="name-input" placeholder="اكتب اسمك هنا">
 <br>
-<button class="start-btn" onclick="start()">🚀 ابدأ المراجعة</button>
+<button class="start-btn" onclick="startApp()">🚀 ابدأ المراجعة</button>
 </div>
 <div class="footer">تصميم وتطوير: عبدالله العرفج - رابع/ج</div>
 </div>
@@ -148,482 +44,64 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-g
 <div class="teacher-info">الأستاذ صفوت نبراوي</div>
 </div>
 <div class="sections">
-<div class="card" onclick="show('fahm')"><div class="card-icon">📖</div><div class="card-title">الفهم القرائي</div><div class="card-desc">ص 41-50</div></div>
-<div class="card" onclick="show('vocab')"><div class="card-icon">📚</div><div class="card-title">المرادفات والأضداد</div><div class="card-desc">معاني الكلمات</div></div>
-<div class="card" onclick="show('relations')"><div class="card-icon">🔢</div><div class="card-title">العلاقات اللغوية</div><div class="card-desc">مفرد وجمع</div></div>
-<div class="card" onclick="show('istifham')"><div class="card-icon">❓</div><div class="card-title">الاستفهام</div><div class="card-desc">ص 51-53</div></div>
-<div class="card" onclick="show('alif')"><div class="card-icon">✍️</div><div class="card-title">الألف اللينة</div><div class="card-desc">ص 67-75</div></div>
-<div class="card" onclick="show('mafool')"><div class="card-icon">📝</div><div class="card-title">المفعول المطلق</div><div class="card-desc">ص 83-86</div></div>
-<div class="card" onclick="show('games')"><div class="card-icon">🎮</div><div class="card-title">الألعاب</div><div class="card-desc">7 ألعاب</div></div>
-<div class="card" onclick="show('quiz')"><div class="card-icon">📝</div><div class="card-title">الاختبار</div><div class="card-desc">30 سؤال</div></div>
-<div class="card" onclick="show('cert')"><div class="card-icon">🏆</div><div class="card-title">الشهادة</div><div class="card-desc">شهادة تميز</div></div>
+<div class="card" onclick="showPage('fahm')"><div class="card-icon">📖</div><div class="card-title">الفهم القرائي</div><div class="card-desc">ص 41-50</div></div>
+<div class="card" onclick="showPage('vocab')"><div class="card-icon">📚</div><div class="card-title">المرادفات والأضداد</div><div class="card-desc">معاني الكلمات</div></div>
+<div class="card" onclick="showPage('relations')"><div class="card-icon">🔢</div><div class="card-title">العلاقات اللغوية</div><div class="card-desc">مفرد وجمع</div></div>
+<div class="card" onclick="showPage('alif')"><div class="card-icon">✍️</div><div class="card-title">الألف اللينة</div><div class="card-desc">ص 67-75</div></div>
+<div class="card" onclick="showPage('mafool')"><div class="card-icon">📝</div><div class="card-title">المفعول المطلق</div><div class="card-desc">ص 83-86</div></div>
+<div class="card" onclick="showPage('games')"><div class="card-icon">🎮</div><div class="card-title">الألعاب</div><div class="card-desc">3 ألعاب</div></div>
+<div class="card" onclick="showPage('quiz')"><div class="card-icon">📝</div><div class="card-title">الاختبار</div><div class="card-desc">30 سؤال</div></div>
+<div class="card" onclick="showPage('cert')"><div class="card-icon">🏆</div><div class="card-title">الشهادة</div><div class="card-desc">شهادة تميز</div></div>
 </div>
 </div>
 
-<div id="fahmPage" class="page">
-<div class="page-header">
-<h1 class="page-title">📖 الفهم القرائي</h1>
-<p class="page-subtitle">مجالس علم - ص 41-50</p>
-<div class="progress-box">
-<div class="score" id="fahmScore">النقاط: 0 / 10</div>
-<div class="progress-bar"><div class="progress" id="fahmProgress">0%</div></div>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📝 النص الكامل</h2>
-<div class="text-content">
-<p>كان للعرب <span class="highlight">مجالس علم</span> يجتمعون فيها، <span class="highlight">يتذاكرون</span> علومهم المختلفة، و<span class="highlight">يتنافسون</span> في إظهار معارفهم.</p>
-<p>من أشهر هذه المجالس <span class="highlight">مجلس المأمون</span>، الذي كان يضم كبار العلماء في عصره.</p>
-<p>في أحد هذه المجالس، تناظر العلماء في <span class="highlight">الشواهد النحوية</span>، فقال أحدهم: حفظ <span class="highlight">علي بن المبارك أربعين ألفًا</span> من الشواهد النحوية.</p>
-<p>وتأتي مرحلة <span class="highlight">الفتوة</span> قبل مرحلة <span class="highlight">الكهولة</span> في حياة الإنسان.</p>
-<p>وقد <span class="highlight">شبّه الرسول ﷺ المسلم بالنخلة</span>، فإنها لا تسقط ورقها، وهي دائمة الخير والعطاء.</p>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📋 أسئلة الفهم</h2>
-<div id="fahmQ"></div>
-</div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="fahmPage" class="page"><div class="page-header"><h1 class="page-title">📖 الفهم القرائي</h1><p class="page-subtitle">مجالس علم - ص 41-50</p><div class="progress-box"><div class="score" id="fahmScore">النقاط: 0 / 10</div><div class="progress-bar"><div class="progress" id="fahmProgress">0%</div></div></div></div><div class="content"><h2 class="content-title">📝 النص الكامل</h2><div class="text-content"><p>كان للعرب <span class="highlight">مجالس علم</span> يجتمعون فيها، <span class="highlight">يتذاكرون</span> علومهم المختلفة، و<span class="highlight">يتنافسون</span> في إظهار معارفهم.</p><p>من أشهر هذه المجالس <span class="highlight">مجلس المأمون</span>، الذي كان يضم كبار العلماء في عصره.</p><p>في أحد هذه المجالس، تناظر العلماء في <span class="highlight">الشواهد النحوية</span>، فقال أحدهم: حفظ <span class="highlight">علي بن المبارك أربعين ألفًا</span> من الشواهد النحوية.</p><p>وتأتي مرحلة <span class="highlight">الفتوة</span> قبل مرحلة <span class="highlight">الكهولة</span> في حياة الإنسان.</p><p>وقد <span class="highlight">شبّه الرسول ﷺ المسلم بالنخلة</span>، فإنها لا تسقط ورقها، وهي دائمة الخير والعطاء.</p></div></div><div class="content"><h2 class="content-title">📋 أسئلة الفهم</h2><div id="fahmQ"></div></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="vocabPage" class="page">
-<div class="page-header">
-<h1 class="page-title">📚 المرادفات والأضداد</h1>
-<p class="page-subtitle">معاني الكلمات</p>
-<div class="progress-box">
-<div class="score" id="vocabScore">النقاط: 0 / 8</div>
-<div class="progress-bar"><div class="progress" id="vocabProgress">0%</div></div>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📋 التدريبات</h2>
-<div id="vocabQ"></div>
-</div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="vocabPage" class="page"><div class="page-header"><h1 class="page-title">📚 المرادفات والأضداد</h1><p class="page-subtitle">معاني الكلمات</p><div class="progress-box"><div class="score" id="vocabScore">النقاط: 0 / 8</div><div class="progress-bar"><div class="progress" id="vocabProgress">0%</div></div></div></div><div class="content"><h2 class="content-title">📋 التدريبات</h2><div id="vocabQ"></div></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="relationsPage" class="page">
-<div class="page-header">
-<h1 class="page-title">🔢 العلاقات اللغوية</h1>
-<p class="page-subtitle">المفرد والجمع</p>
-<div class="progress-box">
-<div class="score" id="relScore">النقاط: 0 / 6</div>
-<div class="progress-bar"><div class="progress" id="relProgress">0%</div></div>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📋 التدريبات</h2>
-<div id="relQ"></div>
-</div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="relationsPage" class="page"><div class="page-header"><h1 class="page-title">🔢 العلاقات اللغوية</h1><p class="page-subtitle">المفرد والجمع</p><div class="progress-box"><div class="score" id="relScore">النقاط: 0 / 6</div><div class="progress-bar"><div class="progress" id="relProgress">0%</div></div></div></div><div class="content"><h2 class="content-title">📋 التدريبات</h2><div id="relQ"></div></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="istifhamPage" class="page">
-<div class="page-header">
-<h1 class="page-title">❓ أسلوب الاستفهام</h1>
-<p class="page-subtitle">ص 51-53</p>
-<div class="progress-box">
-<div class="score" id="istScore">النقاط: 0 / 10</div>
-<div class="progress-bar"><div class="progress" id="istProgress">0%</div></div>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📝 أدوات الاستفهام</h2>
-<div class="text-content">
-<p><strong>من:</strong> للسؤال عن العاقل | <strong>ما:</strong> لغير العاقل</p>
-<p><strong>متى:</strong> للزمان | <strong>أين:</strong> للمكان</p>
-<p><strong>كيف:</strong> للحال | <strong>كم:</strong> للعدد</p>
-<p><strong>لماذا:</strong> للسبب | <strong>هل:</strong> للتصديق</p>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📋 التدريبات</h2>
-<div id="istQ"></div>
-</div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="alifPage" class="page"><div class="page-header"><h1 class="page-title">✍️ الألف اللينة</h1><p class="page-subtitle">ص 67-75</p><div class="progress-box"><div class="score" id="alifScore">النقاط: 0 / 10</div><div class="progress-bar"><div class="progress" id="alifProgress">0%</div></div></div></div><div class="content"><h2 class="content-title">📝 القواعد</h2><div class="text-content"><p><strong>الفعل الثلاثي:</strong> أصلها ياء → <span class="highlight">ى</span> (رمى) | أصلها واو → <span class="highlight">ا</span> (دعا)</p><p><strong>الاسم:</strong> لم يسبقها ياء → <span class="highlight">ى</span> (مستشفى) | سبقها ياء → <span class="highlight">ا</span> (دنيا)</p><p><strong>الحرف:</strong> معظمها → <span class="highlight">ا</span> | ما عدا: حتى - على - بلى - إلى</p></div></div><div class="content"><h2 class="content-title">📋 التدريبات</h2><div id="alifQ"></div></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="alifPage" class="page">
-<div class="page-header">
-<h1 class="page-title">✍️ الألف اللينة</h1>
-<p class="page-subtitle">ص 67-75</p>
-<div class="progress-box">
-<div class="score" id="alifScore">النقاط: 0 / 10</div>
-<div class="progress-bar"><div class="progress" id="alifProgress">0%</div></div>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📝 القواعد</h2>
-<div class="text-content">
-<p><strong>الفعل الثلاثي:</strong> أصلها ياء → <span class="highlight">ى</span> (رمى) | أصلها واو → <span class="highlight">ا</span> (دعا)</p>
-<p><strong>الاسم:</strong> لم يسبقها ياء → <span class="highlight">ى</span> (مستشفى) | سبقها ياء → <span class="highlight">ا</span> (دنيا)</p>
-<p><strong>الحرف:</strong> معظمها → <span class="highlight">ا</span> | ما عدا: حتى - على - بلى - إلى</p>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📋 التدريبات</h2>
-<div id="alifQ"></div>
-</div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="mafoolPage" class="page"><div class="page-header"><h1 class="page-title">📝 المفعول المطلق</h1><p class="page-subtitle">ص 83-86</p><div class="progress-box"><div class="score" id="mafoolScore">النقاط: 0 / 10</div><div class="progress-bar"><div class="progress" id="mafoolProgress">0%</div></div></div></div><div class="content"><h2 class="content-title">📝 التعريف</h2><div class="text-content"><p><strong>المفعول المطلق:</strong> اسم منصوب يذكر بعد الفعل لتأكيده أو بيان نوعه أو عدده</p><p><strong>علامة نصبه:</strong> الفتحة</p><p><strong>مثال:</strong> فهمتُ <span class="highlight">فهمًا</span> - مشيتُ <span class="highlight">مشيًا</span></p></div></div><div class="content"><h2 class="content-title">📋 التدريبات</h2><div id="mafoolQ"></div></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="mafoolPage" class="page">
-<div class="page-header">
-<h1 class="page-title">📝 المفعول المطلق</h1>
-<p class="page-subtitle">ص 83-86</p>
-<div class="progress-box">
-<div class="score" id="mafoolScore">النقاط: 0 / 10</div>
-<div class="progress-bar"><div class="progress" id="mafoolProgress">0%</div></div>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📝 التعريف</h2>
-<div class="text-content">
-<p><strong>المفعول المطلق:</strong> اسم منصوب يذكر بعد الفعل لتأكيده أو بيان نوعه أو عدده</p>
-<p><strong>علامة نصبه:</strong> الفتحة</p>
-<p><strong>مثال:</strong> فهمتُ <span class="highlight">فهمًا</span> - مشيتُ <span class="highlight">مشيًا</span></p>
-</div>
-</div>
-<div class="content">
-<h2 class="content-title">📋 التدريبات</h2>
-<div id="mafoolQ"></div>
-</div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="gamesPage" class="page"><div class="page-header"><h1 class="page-title">🎮 الألعاب التعليمية</h1><p class="page-subtitle">3 ألعاب تفاعلية</p></div><div class="content"><h2 class="content-title">🎯 اختر لعبتك</h2><div class="sections"><div class="card" onclick="playGame(1)"><div class="card-icon">🎯</div><div class="card-title">لعبة المطابقة</div><div class="card-desc">طابق الكلمات</div></div><div class="card" onclick="playGame(2)"><div class="card-icon">🎲</div><div class="card-title">لعبة التصنيف</div><div class="card-desc">صنف الألف</div></div><div class="card" onclick="playGame(3)"><div class="card-icon">🎨</div><div class="card-title">لعبة الذاكرة</div><div class="card-desc">تذكر الكلمات</div></div></div></div><div id="gameArea"></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="gamesPage" class="page">
-<div class="page-header">
-<h1 class="page-title">🎮 الألعاب التعليمية</h1>
-<p class="page-subtitle">7 ألعاب ممتعة</p>
-</div>
-<div class="content">
-<h2 class="content-title">🎯 اختر لعبتك</h2>
-<div class="sections">
-<div class="card" onclick="playGame(1)"><div class="card-icon">🎯</div><div class="card-title">المطابقة</div><div class="card-desc">طابق الكلمة</div></div>
-<div class="card" onclick="playGame(2)"><div class="card-icon">🎲</div><div class="card-title">التصنيف</div><div class="card-desc">صنف الكلمات</div></div>
-<div class="card" onclick="playGame(3)"><div class="card-icon">⏱️</div><div class="card-title">تحدي الوقت</div><div class="card-desc">أجب بسرعة</div></div>
-<div class="card" onclick="playGame(4)"><div class="card-icon">🧩</div><div class="card-title">الترتيب</div><div class="card-desc">رتب الكلمات</div></div>
-<div class="card" onclick="playGame(5)"><div class="card-icon">🎪</div><div class="card-title">اختيار سريع</div><div class="card-desc">اختر الإجابة</div></div>
-<div class="card" onclick="playGame(6)"><div class="card-icon">🎨</div><div class="card-title">الذاكرة</div><div class="card-desc">تذكر الكلمات</div></div>
-<div class="card" onclick="playGame(7)"><div class="card-icon">✨</div><div class="card-title">الربط</div><div class="card-desc">اربط الفعل</div></div>
-</div>
-</div>
-<div id="gameArea" class="hidden"></div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="quizPage" class="page"><div class="page-header"><h1 class="page-title">📝 الاختبار النهائي</h1><p class="page-subtitle">30 سؤال شامل</p></div><div class="quiz" id="quizArea"></div><button class="btn btn-submit" onclick="submitQuiz()">📊 احسب درجتي</button><div id="quizResults" class="hidden"></div><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
-<div id="quizPage" class="page">
-<div class="page-header">
-<h1 class="page-title">📝 الاختبار النهائي</h1>
-<p class="page-subtitle">30 سؤال شامل</p>
-</div>
-<div class="quiz" id="quizArea"></div>
-<button class="btn btn-submit" onclick="submitQuiz()">📊 احسب درجتي</button>
-<div id="quizResults" class="hidden"></div>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
-
-<div id="certPage" class="page">
-<div class="page-header">
-<h1 class="page-title">🏆 شهادة التميز</h1>
-<p class="page-subtitle">شهادتك جاهزة</p>
-</div>
-<div class="certificate">
-<h2 class="cert-title">شهادة تميز في مادة لغتي الجميلة</h2>
-<p class="cert-subtitle">تُمنح للطالب المتميز</p>
-<h3 class="cert-name" id="certName">الطالب</h3>
-<p class="cert-details">لإتمامه مراجعة <strong>الوحدة الرابعة: مجالس علم</strong><br>بنجاح وتفوق</p>
-<div class="cert-score" id="certScore">الدرجة: -- / 30</div>
-<div id="certEval" style="font-size:1.4em;color:var(--blue);font-weight:bold;margin:15px 0"></div>
-<div class="cert-date" id="certDate"></div>
-<div class="cert-footer">
-<p><strong>إشراف:</strong> الأستاذ صفوت نبراوي - معلم لغتي</p>
-<p style="margin-top:8px"><strong>تصميم وتطوير:</strong> عبدالله العرفج - رابع/ج</p>
-</div>
-</div>
-<button class="btn" onclick="window.print()">🖨️ طباعة الشهادة</button>
-<button class="btn btn-back" onclick="show('home')">⬅️ العودة</button>
-</div>
+<div id="certPage" class="page"><div class="page-header"><h1 class="page-title">🏆 شهادة التميز</h1><p class="page-subtitle">شهادتك جاهزة</p></div><div class="certificate"><h2 class="cert-title">شهادة تميز في مادة لغتي الجميلة</h2><p class="cert-subtitle">تُمنح للطالب المتميز</p><h3 class="cert-name" id="certName">الطالب</h3><p class="cert-details">لإتمامه مراجعة <strong>الوحدة الرابعة: مجالس علم</strong><br>بنجاح وتفوق</p><div class="cert-score" id="certScore">الدرجة: -- / 30</div><div id="certEval" style="font-size:1.4em;color:var(--blue);font-weight:bold;margin:15px 0"></div><div class="cert-date" id="certDate"></div><div class="cert-footer"><p><strong>إشراف:</strong> الأستاذ صفوت نبراوي - معلم لغتي</p><p style="margin-top:8px"><strong>تصميم وتطوير:</strong> عبدالله العرفج - رابع/ج</p></div></div><button class="btn" onclick="window.print()">🖨️ طباعة</button><button class="btn btn-back" onclick="showPage('home')">⬅️ العودة</button></div>
 
 </div>
 
 <script>
-let studentName='';
-let scores={fahm:0,vocab:0,relations:0,istifham:0,alif:0,mafool:0};
-const data={
-fahm:[
-{q:'ما الفكرة الرئيسية للنص؟',o:['المساجد','مجالس العلم عند العرب','الشعر','التجارة'],a:1,e:'مجالس العلم!'},
-{q:'من أشهر مجالس العلم؟',o:['المنصور','المأمون','هارون','المتوكل'],a:1,e:'المأمون!'},
-{q:'كم شاهدًا حفظ علي بن المبارك؟',o:['أربعين','أربعمائة','أربعة آلاف','أربعين ألفًا'],a:3,e:'40,000!'},
-{q:'تأتي الفتوة قبل:',o:['الطفولة','الكهولة','الشيخوخة','الشباب'],a:1,e:'الكهولة!'},
-{q:'بماذا شبّه الرسول ﷺ المسلم؟',o:['بالوردة','بالنخلة','بالنهر','بالجبل'],a:1,e:'النخلة!'},
-{q:'ما معنى "يتذاكرون"؟',o:['يتجادلون','يتدارسون','يتنافسون','يتحدثون'],a:1,e:'يتدارسون!'},
-{q:'ما ضد "الفتوة"؟',o:['الطفولة','الكهولة','الشباب','الصبا'],a:1,e:'الكهولة!'},
-{q:'ما نوع الأسلوب في "إنها مثل المسلم"؟',o:['نفي','تشبيه','استفهام','نداء'],a:1,e:'تشبيه!'},
-{q:'كان العلماء يتنافسون في:',o:['الطعام','إظهار معارفهم','الرياضة','التجارة'],a:1,e:'إظهار معارفهم!'},
-{q:'ما جمع "مجلس"؟',o:['مجلسان','مجالس','أمجلس','مجلسات'],a:1,e:'مجالس!'}
-],
-vocab:[
-{q:'مرادف "يتذاكرون":',o:['يتجادلون','يتدارسون','يتنافسون','يتحاورون'],a:1,e:'يتدارسون'},
-{q:'ضد "الفتوة":',o:['الشباب','الطفولة','الكهولة','الصبا'],a:2,e:'الكهولة'},
-{q:'مرادف "شبّه":',o:['خالف','فرّق','قارن','باعد'],a:2,e:'قارن'},
-{q:'ضد "يتنافسون":',o:['يتعاونون','يتجادلون','يتذاكرون','يتحاورون'],a:0,e:'يتعاونون'},
-{q:'مرادف "تأتي":',o:['تذهب','تجيء','تبعد','تخرج'],a:1,e:'تجيء'},
-{q:'معنى "مجالس":',o:['بيوت','أماكن الاجتماع','مساجد','مدارس'],a:1,e:'أماكن الاجتماع'},
-{q:'ضد "تأتي":',o:['تذهب','تبقى','ترجع','تعود'],a:0,e:'تذهب'},
-{q:'مرادف "يتنافسون":',o:['يتعاونون','يتسابقون','يتحدثون','يتجادلون'],a:1,e:'يتسابقون'}
-],
-relations:[
-{q:'جمع "مجلس":',o:['مجلسون','مجالس','أمجلس','مجلسات'],a:1,e:'مجالس'},
-{q:'مفرد "الشواهد":',o:['الشهيد','الشاهد','المشهد','الشهادة'],a:1,e:'الشاهد'},
-{q:'جمع "النخلة":',o:['النخل','النخيل','نخيلات','أنخال'],a:1,e:'النخيل'},
-{q:'مفرد "علماء":',o:['علم','عالم','معلم','تعليم'],a:1,e:'عالم'},
-{q:'نوع "مجالس":',o:['مفرد','مثنى','جمع','فعل'],a:2,e:'جمع'},
-{q:'جمع "عصر":',o:['أعصار','عصور','عصران','عصرات'],a:1,e:'عصور'}
-],
-istifham:[
-{q:'أداة السؤال عن العاقل:',o:['ما','من','متى','كيف'],a:1,e:'من'},
-{q:'أداة السؤال عن المكان:',o:['متى','أين','كيف','لماذا'],a:1,e:'أين'},
-{q:'أداة السؤال عن الزمان:',o:['من','ما','متى','أين'],a:2,e:'متى'},
-{q:'أداة السؤال عن العدد:',o:['كم','كيف','لماذا','هل'],a:0,e:'كم'},
-{q:'.... حفظ الشواهد؟',o:['ما','متى','من','أين'],a:2,e:'من'},
-{q:'.... كان المجلس؟',o:['أين','من','ما','كيف'],a:0,e:'أين'},
-{q:'.... شبّه النبي المسلم؟',o:['بمن','بماذا','بما','بأين'],a:2,e:'بما'},
-{q:'.... شاهدًا حفظ؟',o:['من','ما','كم','متى'],a:2,e:'كم'},
-{q:'أداة السؤال عن السبب:',o:['كيف','لماذا','هل','كم'],a:1,e:'لماذا'},
-{q:'.... يتنافس العلماء؟',o:['من','لماذا','أين','ما'],a:1,e:'لماذا'}
-],
-alif:[
-{q:'الكتابة الصحيحة:',o:['المستشفا','المستشفى','المستشفي','المستشفاء'],a:1,e:'المستشفى'},
-{q:'الكتابة الصحيحة:',o:['على','علا','علي','عل'],a:0,e:'على'},
-{q:'الكتابة الصحيحة:',o:['أتا','أتى','أتي','آتا'],a:1,e:'أتى'},
-{q:'الكتابة الصحيحة:',o:['رما','رمى','رمي','رمآ'],a:1,e:'رمى'},
-{q:'الكتابة الصحيحة:',o:['دعا','دعى','دعي','دعآ'],a:0,e:'دعا'},
-{q:'الكتابة الصحيحة:',o:['دنيا','دنيى','دنيآ','دنية'],a:0,e:'دنيا'},
-{q:'الكتابة الصحيحة:',o:['رضا','رضى','رضي','رضآ'],a:1,e:'رضى'},
-{q:'الكتابة الصحيحة:',o:['الضحا','الضحى','الضحي','الضحآ'],a:1,e:'الضحى'},
-{q:'في الفعل الثلاثي (ى) أصلها:',o:['واو','ياء','همزة','تاء'],a:1,e:'ياء'},
-{q:'الكتابة الصحيحة:',o:['مشا','مشى','مشي','مشآ'],a:1,e:'مشى'}
-],
-mafool:[
-{q:'المفعول المطلق في "مشيتُ مشيًا":',o:['مشيتُ','مشيًا','سريعًا','أنا'],a:1,e:'مشيًا'},
-{q:'المفعول المطلق في "فهمتُ فهمًا":',o:['فهمتُ','الدرسَ','فهمًا','أنا'],a:2,e:'فهمًا'},
-{q:'المفعول المطلق منصوب بـ:',o:['الضمة','الفتحة','الكسرة','السكون'],a:1,e:'الفتحة'},
-{q:'وثب .... مباغتًا',o:['وثب','وثبًا','يثب','اوثب'],a:1,e:'وثبًا'},
-{q:'صام .... كاملاً',o:['صيام','صيامًا','يصوم','صُم'],a:1,e:'صيامًا'},
-{q:'إعراب "فهمًا":',o:['فاعل','مفعول به','مفعول مطلق','مبتدأ'],a:2,e:'مفعول مطلق'},
-{q:'ساهم .... عظيمة',o:['مساهمة','مساهمةً','يساهم','ساهِم'],a:1,e:'مساهمةً'},
-{q:'المفعول المطلق اسم منصوب من:',o:['لفظ الفعل','لفظ الفاعل','لفظ المبتدأ','لفظ الخبر'],a:0,e:'لفظ الفعل'},
-{q:'يذكر المفعول المطلق:',o:['قبل الفعل','بعد الفعل','بعد الفاعل','قبل الفاعل'],a:1,e:'بعد الفعل'},
-{q:'كلّم تكليمًا. المفعول المطلق:',o:['كلّم','تكليمًا','تكليم','كليم'],a:1,e:'تكليمًا'}
-]
+var studentName='';
+var scores={fahm:0,vocab:0,relations:0,alif:0,mafool:0};
+var data={
+fahm:[{q:'ما الفكرة الرئيسية للنص؟',o:['المساجد','مجالس العلم عند العرب','الشعر','التجارة'],a:1},{q:'من أشهر مجالس العلم؟',o:['المنصور','المأمون','هارون','المتوكل'],a:1},{q:'كم شاهدًا حفظ علي بن المبارك؟',o:['أربعين','أربعمائة','أربعة آلاف','أربعين ألفًا'],a:3},{q:'تأتي الفتوة قبل:',o:['الطفولة','الكهولة','الشيخوخة','الشباب'],a:1},{q:'بماذا شبّه الرسول ﷺ المسلم؟',o:['بالوردة','بالنخلة','بالنهر','بالجبل'],a:1},{q:'ما معنى "يتذاكرون"؟',o:['يتجادلون','يتدارسون','يتنافسون','يتحدثون'],a:1},{q:'ما ضد "الفتوة"؟',o:['الطفولة','الكهولة','الشباب','الصبا'],a:1},{q:'ما نوع الأسلوب في "إنها مثل المسلم"؟',o:['نفي','تشبيه','استفهام','نداء'],a:1},{q:'كان العلماء يتنافسون في:',o:['الطعام','إظهار معارفهم','الرياضة','التجارة'],a:1},{q:'ما جمع "مجلس"؟',o:['مجلسان','مجالس','أمجلس','مجلسات'],a:1}],
+vocab:[{q:'مرادف "يتذاكرون":',o:['يتجادلون','يتدارسون','يتنافسون','يتحاورون'],a:1},{q:'ضد "الفتوة":',o:['الشباب','الطفولة','الكهولة','الصبا'],a:2},{q:'مرادف "شبّه":',o:['خالف','فرّق','قارن','باعد'],a:2},{q:'ضد "يتنافسون":',o:['يتعاونون','يتجادلون','يتذاكرون','يتحاورون'],a:0},{q:'مرادف "تأتي":',o:['تذهب','تجيء','تبعد','تخرج'],a:1},{q:'معنى "مجالس":',o:['بيوت','أماكن الاجتماع','مساجد','مدارس'],a:1},{q:'ضد "تأتي":',o:['تذهب','تبقى','ترجع','تعود'],a:0},{q:'مرادف "يتنافسون":',o:['يتعاونون','يتسابقون','يتحدثون','يتجادلون'],a:1}],
+relations:[{q:'جمع "مجلس":',o:['مجلسون','مجالس','أمجلس','مجلسات'],a:1},{q:'مفرد "الشواهد":',o:['الشهيد','الشاهد','المشهد','الشهادة'],a:1},{q:'جمع "النخلة":',o:['النخل','النخيل','نخيلات','أنخال'],a:1},{q:'مفرد "علماء":',o:['علم','عالم','معلم','تعليم'],a:1},{q:'نوع "مجالس":',o:['مفرد','مثنى','جمع','فعل'],a:2},{q:'جمع "عصر":',o:['أعصار','عصور','عصران','عصرات'],a:1}],
+alif:[{q:'الكتابة الصحيحة:',o:['المستشفا','المستشفى','المستشفي','المستشفاء'],a:1},{q:'الكتابة الصحيحة:',o:['على','علا','علي','عل'],a:0},{q:'الكتابة الصحيحة:',o:['أتا','أتى','أتي','آتا'],a:1},{q:'الكتابة الصحيحة:',o:['رما','رمى','رمي','رمآ'],a:1},{q:'الكتابة الصحيحة:',o:['دعا','دعى','دعي','دعآ'],a:0},{q:'الكتابة الصحيحة:',o:['دنيا','دنيى','دنيآ','دنية'],a:0},{q:'الكتابة الصحيحة:',o:['رضا','رضى','رضي','رضآ'],a:1},{q:'الكتابة الصحيحة:',o:['الضحا','الضحى','الضحي','الضحآ'],a:1},{q:'في الفعل الثلاثي (ى) أصلها:',o:['واو','ياء','همزة','تاء'],a:1},{q:'الكتابة الصحيحة:',o:['مشا','مشى','مشي','مشآ'],a:1}],
+mafool:[{q:'المفعول المطلق في "مشيتُ مشيًا":',o:['مشيتُ','مشيًا','سريعًا','أنا'],a:1},{q:'المفعول المطلق في "فهمتُ فهمًا":',o:['فهمتُ','الدرسَ','فهمًا','أنا'],a:2},{q:'المفعول المطلق منصوب بـ:',o:['الضمة','الفتحة','الكسرة','السكون'],a:1},{q:'وثب .... مباغتًا',o:['وثب','وثبًا','يثب','اوثب'],a:1},{q:'صام .... كاملاً',o:['صيام','صيامًا','يصوم','صُم'],a:1},{q:'إعراب "فهمًا":',o:['فاعل','مفعول به','مفعول مطلق','مبتدأ'],a:2},{q:'ساهم .... عظيمة',o:['مساهمة','مساهمةً','يساهم','ساهِم'],a:1},{q:'المفعول المطلق اسم منصوب من:',o:['لفظ الفعل','لفظ الفاعل','لفظ المبتدأ','لفظ الخبر'],a:0},{q:'يذكر المفعول المطلق:',o:['قبل الفعل','بعد الفعل','بعد الفاعل','قبل الفاعل'],a:1},{q:'كلّم تكليمًا. المفعول المطلق:',o:['كلّم','تكليمًا','تكليم','كليم'],a:1}]
 };
-const quizData=[
-{q:'من حفظ 40,000 شاهد؟',o:['المأمون','علي بن المبارك','ابن سينا','الخليل'],a:1},
-{q:'كم شاهدًا حفظ؟',o:['40','4000','40000','400'],a:2},
-{q:'قبل الكهولة:',o:['الطفولة','الفتوة','الشيخوخة','المراهقة'],a:1},
-{q:'شبّه النبي ﷺ المسلم بـ:',o:['الوردة','النخلة','النهر','الجبل'],a:1},
-{q:'أشهر المجالس:',o:['المأمون','هارون','المنصور','المتوكل'],a:0},
-{q:'مرادف "يتذاكرون":',o:['يتنافسون','يتدارسون','يتحاورون','يتجادلون'],a:1},
-{q:'ضد "الفتوة":',o:['الطفولة','الكهولة','الشباب','الصبا'],a:1},
-{q:'جمع "مجلس":',o:['مجلسون','مجالس','أمجلس','مجلسات'],a:1},
-{q:'مفرد "الشواهد":',o:['الشهيد','الشاهد','المشهد','الشهادة'],a:1},
-{q:'أداة السؤال عن العاقل:',o:['ما','من','كيف','هل'],a:1},
-{q:'.... كان المجلس؟',o:['أين','من','متى','كيف'],a:0},
-{q:'.... حفظ الشواهد؟',o:['ما','من','متى','هل'],a:1},
-{q:'أداة السؤال عن العدد:',o:['كيف','كم','لماذا','هل'],a:1},
-{q:'الكتابة الصحيحة:',o:['المستشفا','المستشفى','المستشفي','المستشفاء'],a:1},
-{q:'الكتابة الصحيحة:',o:['على','علا','علي','عل'],a:0},
-{q:'الكتابة الصحيحة:',o:['رما','رمى','رمي','رمآ'],a:1},
-{q:'الكتابة الصحيحة:',o:['دعا','دعى','دعي','دعآ'],a:0},
-{q:'المفعول في "مشيتُ مشيًا":',o:['مشيتُ','مشيًا','سريعًا','أنا'],a:1},
-{q:'المفعول في "فهمتُ فهمًا":',o:['فهمتُ','الدرسَ','فهمًا','أنا'],a:2},
-{q:'المفعول المطلق منصوب بـ:',o:['الضمة','الفتحة','الكسرة','السكون'],a:1},
-{q:'صام .... كاملاً',o:['صيام','صيامًا','يصوم','صُم'],a:1},
-{q:'ساهم .... عظيمة',o:['مساهمة','مساهمةً','يساهم','ساهِم'],a:1},
-{q:'إعراب "فهمًا":',o:['فاعل','مفعول به','مفعول مطلق','مبتدأ'],a:2},
-{q:'في الفعل الثلاثي (ى) أصلها:',o:['واو','ياء','همزة','تاء'],a:1},
-{q:'الفكرة الرئيسية:',o:['المأمون','مجالس العلم','علي','النخلة'],a:1},
-{q:'الكتابة الصحيحة:',o:['دنيا','دنيى','دنيآ','دنية'],a:0},
-{q:'جمع "النخلة":',o:['النخل','النخيل','نخيلات','أنخال'],a:1},
-{q:'أداة السؤال عن الزمان:',o:['من','ما','متى','أين'],a:2},
-{q:'نوع الأسلوب "إنها مثل المسلم":',o:['نفي','تشبيه','استفهام','نداء'],a:1},
-{q:'وثب .... مباغتًا',o:['وثب','وثبًا','يثب','اوثب'],a:1}
-];
+var quizData=[{q:'من حفظ 40,000 شاهد؟',o:['المأمون','علي بن المبارك','ابن سينا','الخليل'],a:1},{q:'كم شاهدًا حفظ؟',o:['40','4000','40000','400'],a:2},{q:'قبل الكهولة:',o:['الطفولة','الفتوة','الشيخوخة','المراهقة'],a:1},{q:'شبّه النبي ﷺ المسلم بـ:',o:['الوردة','النخلة','النهر','الجبل'],a:1},{q:'أشهر المجالس:',o:['المأمون','هارون','المنصور','المتوكل'],a:0},{q:'مرادف "يتذاكرون":',o:['يتنافسون','يتدارسون','يتحاورون','يتجادلون'],a:1},{q:'ضد "الفتوة":',o:['الطفولة','الكهولة','الشباب','الصبا'],a:1},{q:'جمع "مجلس":',o:['مجلسون','مجالس','أمجلس','مجلسات'],a:1},{q:'مفرد "الشواهد":',o:['الشهيد','الشاهد','المشهد','الشهادة'],a:1},{q:'معنى "مجالس":',o:['بيوت','أماكن الاجتماع','مساجد','مدارس'],a:1},{q:'جمع "النخلة":',o:['النخل','النخيل','نخيلات','أنخال'],a:1},{q:'الكتابة الصحيحة:',o:['المستشفا','المستشفى','المستشفي','المستشفاء'],a:1},{q:'الكتابة الصحيحة:',o:['على','علا','علي','عل'],a:0},{q:'الكتابة الصحيحة:',o:['رما','رمى','رمي','رمآ'],a:1},{q:'الكتابة الصحيحة:',o:['دعا','دعى','دعي','دعآ'],a:0},{q:'الكتابة الصحيحة:',o:['دنيا','دنيى','دنيآ','دنية'],a:0},{q:'في الفعل الثلاثي (ى) أصلها:',o:['واو','ياء','همزة','تاء'],a:1},{q:'المفعول في "مشيتُ مشيًا":',o:['مشيتُ','مشيًا','سريعًا','أنا'],a:1},{q:'المفعول في "فهمتُ فهمًا":',o:['فهمتُ','الدرسَ','فهمًا','أنا'],a:2},{q:'المفعول المطلق منصوب بـ:',o:['الضمة','الفتحة','الكسرة','السكون'],a:1},{q:'صام .... كاملاً',o:['صيام','صيامًا','يصوم','صُم'],a:1},{q:'ساهم .... عظيمة',o:['مساهمة','مساهمةً','يساهم','ساهِم'],a:1},{q:'إعراب "فهمًا":',o:['فاعل','مفعول به','مفعول مطلق','مبتدأ'],a:2},{q:'الفكرة الرئيسية:',o:['المأمون','مجالس العلم','علي','النخلة'],a:1},{q:'مفرد "علماء":',o:['علم','عالم','معلم','تعليم'],a:1},{q:'المفعول المطلق اسم منصوب من:',o:['لفظ الفعل','لفظ الفاعل','لفظ المبتدأ','لفظ الخبر'],a:0},{q:'الكتابة الصحيحة:',o:['الضحا','الضحى','الضحي','الضحآ'],a:1},{q:'نوع الأسلوب "إنها مثل المسلم":',o:['نفي','تشبيه','استفهام','نداء'],a:1},{q:'وثب .... مباغتًا',o:['وثب','وثبًا','يثب','اوثب'],a:1},{q:'ضد "يتنافسون":',o:['يتعاونون','يتجادلون','يتذاكرون','يتحاورون'],a:0}];
 
-function start(){
-const n=document.getElementById('nameInput').value.trim();
-if(!n){alert('من فضلك اكتب اسمك!');return}
-studentName=n;
-document.getElementById('studentName').textContent='👨‍🎓 '+n;
-document.getElementById('welcome').classList.add('hidden');
-document.getElementById('app').classList.remove('hidden');
-playSound('success');
-}
+function startApp(){var n=document.getElementById('nameInput').value.trim();if(!n){alert('من فضلك اكتب اسمك!');return}studentName=n;document.getElementById('studentName').textContent='👨‍🎓 '+n;document.getElementById('welcome').classList.add('hidden');document.getElementById('app').classList.remove('hidden')}
 
-function show(page){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-const pages={home:'home',fahm:'fahmPage',vocab:'vocabPage',relations:'relationsPage',istifham:'istifhamPage',alif:'alifPage',mafool:'mafoolPage',games:'gamesPage',quiz:'quizPage',cert:'certPage'};
-const p=pages[page];
-if(p){
-document.getElementById(p).classList.add('active');
-if(page!=='home'&&page!=='games'&&page!=='cert'){
-const sec=page==='relations'?'relations':page==='istifham'?'istifham':page;
-if(!document.getElementById(sec+'Q').innerHTML)initSection(sec);
-}
-if(page==='quiz'&&!document.getElementById('quizArea').innerHTML)initQuiz();
-if(page==='cert')updateCert();
-}
-window.scrollTo(0,0);
-playSound('click');
-}
+function showPage(p){document.querySelectorAll('.page').forEach(function(x){x.classList.remove('active')});var pages={home:'home',fahm:'fahmPage',vocab:'vocabPage',relations:'relationsPage',alif:'alifPage',mafool:'mafoolPage',games:'gamesPage',quiz:'quizPage',cert:'certPage'};if(pages[p]){document.getElementById(pages[p]).classList.add('active');if(p!=='home'&&p!=='games'&&p!=='cert'&&p!=='quiz'){if(!document.getElementById(p+'Q').innerHTML)initSection(p)}if(p==='quiz'&&!document.getElementById('quizArea').innerHTML)initQuiz();if(p==='cert')updateCert()}window.scrollTo(0,0)}
 
-function initSection(sec){
-scores[sec]=0;
-updateProgress(sec,0,data[sec].length);
-const container=document.getElementById(sec+'Q');
-container.innerHTML='';
-data[sec].forEach((q,i)=>{
-const ex=document.createElement('div');
-ex.className='exercise';
-let html=`<div class="question"><span class="q-num">${i+1}</span>${q.q}</div>`;
-html+=`<div class="options" id="opt_${sec}_${i}">`;
-q.o.forEach((opt,j)=>{html+=`<button class="option" onclick="checkAnswer('${sec}',${i},${j})">${opt}</button>`});
-html+=`</div><div class="feedback" id="fb_${sec}_${i}"></div>`;
-ex.innerHTML=html;
-container.appendChild(ex);
-});
-}
+function initSection(s){scores[s]=0;updateProgress(s,0,data[s].length);var c=document.getElementById(s+'Q');c.innerHTML='';for(var i=0;i<data[s].length;i++){var q=data[s][i];var e=document.createElement('div');e.className='exercise';var h='<div class="question"><span class="q-num">'+(i+1)+'</span>'+q.q+'</div><div class="options" id="opt_'+s+'_'+i+'">';for(var j=0;j<q.o.length;j++){h+='<button class="option" onclick="checkAnswer(\''+s+'\','+i+','+j+')">'+q.o[j]+'</button>'}h+='</div><div class="feedback" id="fb_'+s+'_'+i+'"></div>';e.innerHTML=h;c.appendChild(e)}}
 
-function checkAnswer(sec,qi,oi){
-const q=data[sec][qi];
-const opts=document.getElementById(`opt_${sec}_${qi}`).querySelectorAll('.option');
-const fb=document.getElementById(`fb_${sec}_${qi}`);
-opts.forEach(btn=>btn.disabled=true);
-if(oi===q.a){
-opts[oi].classList.add('correct');
-fb.className='feedback success show';
-fb.textContent='✅ إجابة صحيحة! '+q.e;
-scores[sec]++;
-playSound('success');
-showStars(3);
-}else{
-opts[oi].classList.add('wrong');
-opts[q.a].classList.add('correct');
-fb.className='feedback error show';
-fb.textContent='❌ الصحيح: '+q.o[q.a];
-playSound('error');
-}
-updateProgress(sec,scores[sec],data[sec].length);
-}
+function checkAnswer(s,qi,oi){var q=data[s][qi];var opts=document.getElementById('opt_'+s+'_'+qi).querySelectorAll('.option');var fb=document.getElementById('fb_'+s+'_'+qi);for(var i=0;i<opts.length;i++){opts[i].disabled=true}if(oi===q.a){opts[oi].classList.add('correct');fb.className='feedback success show';fb.textContent='✅ صحيح!';scores[s]++}else{opts[oi].classList.add('wrong');opts[q.a].classList.add('correct');fb.className='feedback error show';fb.textContent='❌ الصحيح: '+q.o[q.a]}updateProgress(s,scores[s],data[s].length)}
 
-function updateProgress(sec,score,total){
-const percent=(score/total)*100;
-document.getElementById(`${sec}Score`).textContent=`النقاط: ${score} / ${total}`;
-document.getElementById(`${sec}Progress`).style.width=percent+'%';
-document.getElementById(`${sec}Progress`).textContent=Math.round(percent)+'%';
-}
+function updateProgress(s,sc,t){var p=(sc/t)*100;document.getElementById(s+'Score').textContent='النقاط: '+sc+' / '+t;document.getElementById(s+'Progress').style.width=p+'%';document.getElementById(s+'Progress').textContent=Math.round(p)+'%'}
 
-function showStars(count){
-const stars=document.createElement('div');
-stars.className='stars';
-for(let i=0;i<count;i++){
-const star=document.createElement('span');
-star.className='star';
-star.textContent='⭐';
-star.style.animationDelay=(i*0.1)+'s';
-stars.appendChild(star);
-}
-const currentPage=document.querySelector('.page.active');
-if(currentPage){
-currentPage.insertBefore(stars,currentPage.firstChild);
-setTimeout(()=>stars.remove(),2000);
-}
-}
+function playGame(n){var a=document.getElementById('gameArea');a.innerHTML='';a.style.display='block';if(n===1){a.innerHTML='<div class="game"><h3 style="text-align:center;margin-bottom:20px">🎯 لعبة المطابقة</h3><p style="text-align:center;margin-bottom:20px">اضغط على الكلمة ثم اضغط على معناها</p><div class="game-header"><div class="game-score" id="gScore">النقاط: 0</div></div><div class="game-grid" style="grid-template-columns:1fr 1fr" id="gGrid"></div></div>';var pairs=[{w:'يتذاكرون',m:'يتدارسون'},{w:'الفتوة',m:'الشباب'},{w:'مجالس',m:'أماكن اجتماع'},{w:'شبّه',m:'قارن'}];var grid=document.getElementById('gGrid');var left=document.createElement('div');var right=document.createElement('div');var sel=null;var sc=0;pairs.forEach(function(p,i){var w=document.createElement('div');w.className='game-card';w.textContent=p.w;w.dataset.id=i;w.dataset.type='w';w.onclick=function(){selectCard(this,i,'w')};left.appendChild(w);var m=document.createElement('div');m.className='game-card';m.textContent=p.m;m.dataset.id=i;m.dataset.type='m';m.onclick=function(){selectCard(this,i,'m')};right.appendChild(m)});grid.appendChild(left);grid.appendChild(right);function selectCard(c,id,t){if(c.classList.contains('matched'))return;if(!sel){sel={c:c,id:id,t:t};c.classList.add('selected')}else{if(sel.t!==t&&sel.id===id){sel.c.classList.remove('selected');c.classList.add('matched');sel.c.classList.add('matched');sc+=10;document.getElementById('gScore').textContent='النقاط: '+sc}else{sel.c.classList.remove('selected')}sel=null}}}else if(n===2){a.innerHTML='<div class="game"><h3 style="text-align:center;margin-bottom:20px">🎲 لعبة التصنيف</h3><p style="text-align:center;margin-bottom:20px">اختر الرسم الصحيح للألف اللينة</p><div class="game-header"><div class="game-score" id="gScore">النقاط: 0 / 6</div></div><div style="text-align:center;margin:30px 0;font-size:2em;font-weight:bold;color:var(--blue)" id="gWord"></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:500px;margin:0 auto" id="gBtns"></div></div>';var words=[{w:'مستشفى',c:'ى'},{w:'دعا',c:'ا'},{w:'رمى',c:'ى'},{w:'دنيا',c:'ا'},{w:'على',c:'ى'},{w:'عفا',c:'ا'}];var cur=0;var sc=0;showWord();function showWord(){if(cur<words.length){document.getElementById('gWord').textContent=words[cur].w;var btns=document.getElementById('gBtns');btns.innerHTML='<button class="game-card" onclick="classifyWord(\'ى\')" style="font-size:1.5em;padding:30px">ى</button><button class="game-card" onclick="classifyWord(\'ا\')" style="font-size:1.5em;padding:30px">ا</button>'}else{document.getElementById('gWord').textContent='انتهت اللعبة!';document.getElementById('gBtns').innerHTML='<div style="grid-column:1/-1;text-align:center;font-size:1.5em;color:var(--green);font-weight:bold">النقاط: '+sc+' / 6</div>'}}window.classifyWord=function(ch){if(ch===words[cur].c){sc++;document.getElementById('gScore').textContent='النقاط: '+sc+' / 6'}cur++;showWord()}}else if(n===3){a.innerHTML='<div class="game"><h3 style="text-align:center;margin-bottom:20px">🎨 لعبة الذاكرة</h3><p style="text-align:center;margin-bottom:20px">اكشف البطاقات المتطابقة</p><div class="game-header"><div class="game-score" id="gScore">الأزواج: 0 / 4</div></div><div class="game-grid" style="grid-template-columns:repeat(4,1fr)" id="gGrid"></div></div>';var pairs=['يتذاكرون','يتذاكرون','الفتوة','الفتوة','مجالس','مجالس','النخلة','النخلة'];var shuffled=pairs.sort(function(){return Math.random()-0.5});var flipped=[];var matched=0;var grid=document.getElementById('gGrid');shuffled.forEach(function(word,i){var card=document.createElement('div');card.className='game-card';card.textContent='?';card.dataset.word=word;card.dataset.id=i;card.onclick=function(){flipCard(this)};grid.appendChild(card)});function flipCard(c){if(flipped.length===2||c.classList.contains('matched')||c.dataset.flipped==='true')return;c.textContent=c.dataset.word;c.dataset.flipped='true';c.classList.add('selected');flipped.push({c:c,w:c.dataset.word});if(flipped.length===2){setTimeout(function(){if(flipped[0].w===flipped[1].w){flipped[0].c.classList.remove('selected');flipped[1].c.classList.remove('selected');flipped[0].c.classList.add('matched');flipped[1].c.classList.add('matched');matched++;document.getElementById('gScore').textContent='الأزواج: '+matched+' / 4'}else{flipped[0].c.textContent='?';flipped[1].c.textContent='?';flipped[0].c.dataset.flipped='false';flipped[1].c.dataset.flipped='false';flipped[0].c.classList.remove('selected');flipped[1].c.classList.remove('selected')}flipped=[]},1000)}}}}
 
-function playSound(type){
-try{
-const ctx=new(window.AudioContext||window.webkitAudioContext)();
-const osc=ctx.createOscillator();
-const gain=ctx.createGain();
-osc.connect(gain);
-gain.connect(ctx.destination);
-if(type==='success'){
-osc.frequency.value=800;
-gain.gain.setValueAtTime(0.3,ctx.currentTime);
-gain.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.3);
-}else if(type==='error'){
-osc.frequency.value=200;
-gain.gain.setValueAtTime(0.2,ctx.currentTime);
-gain.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.2);
-}else{
-osc.frequency.value=500;
-gain.gain.setValueAtTime(0.1,ctx.currentTime);
-gain.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.1);
-}
-osc.start(ctx.currentTime);
-osc.stop(ctx.currentTime+0.3);
-}catch(e){}
-}
+function initQuiz(){var c=document.getElementById('quizArea');c.innerHTML='';for(var i=0;i<quizData.length;i++){var q=quizData[i];var d=document.createElement('div');d.className='quiz-q';var h='<div class="quiz-num">السؤال '+(i+1)+'</div><div class="question">'+q.q+'</div><div>';for(var j=0;j<q.o.length;j++){h+='<label class="quiz-option"><input type="radio" name="q'+i+'" value="'+j+'">'+q.o[j]+'</label>'}h+='</div>';d.innerHTML=h;c.appendChild(d)}}
 
-function playGame(n){
-alert('🎮 الألعاب قيد التطوير!\nستكون جاهزة قريبًا 🚀');
-}
+function submitQuiz(){var sc=0;for(var i=0;i<quizData.length;i++){var sel=document.querySelector('input[name="q'+i+'"]:checked');if(sel&&parseInt(sel.value)===quizData[i].a){sc++}}var pct=(sc/quizData.length)*100;var msg='';var emoji='';if(pct>=90){msg='ممتاز جدًا!';emoji='🏆'}else if(pct>=75){msg='رائع!';emoji='⭐'}else if(pct>=60){msg='جيد!';emoji='👍'}else{msg='راجع الدروس';emoji='📚'}var r=document.getElementById('quizResults');r.innerHTML='<div class="results"><div class="results-emoji">'+emoji+'</div><div class="results-score">'+sc+'/'+quizData.length+'</div><div class="results-msg">'+msg+'</div><div class="results-percent">النسبة: '+Math.round(pct)+'%</div></div>';r.classList.remove('hidden');r.scrollIntoView({behavior:'smooth'});localStorage.setItem('quizScore',sc);localStorage.setItem('quizTotal',quizData.length)}
 
-function initQuiz(){
-const container=document.getElementById('quizArea');
-container.innerHTML='';
-quizData.forEach((q,i)=>{
-const div=document.createElement('div');
-div.className='quiz-q';
-let html=`<div class="quiz-num">السؤال ${i+1}</div>`;
-html+=`<div class="question">${q.q}</div><div>`;
-q.o.forEach((opt,j)=>{
-html+=`<label class="quiz-option"><input type="radio" name="q${i}" value="${j}">${opt}</label>`;
-});
-html+=`</div>`;
-div.innerHTML=html;
-container.appendChild(div);
-});
-}
-
-function submitQuiz(){
-let score=0;
-quizData.forEach((q,i)=>{
-const sel=document.querySelector(`input[name="q${i}"]:checked`);
-if(sel&&parseInt(sel.value)===q.a)score++;
-});
-const pct=(score/quizData.length)*100;
-let msg='',emoji='';
-if(pct>=90){msg='ممتاز جدًا!';emoji='🏆'}
-else if(pct>=75){msg='رائع!';emoji='⭐'}
-else if(pct>=60){msg='جيد!';emoji='👍'}
-else{msg='راجع الدروس';emoji='📚'}
-const r=document.getElementById('quizResults');
-r.innerHTML=`<div class="results"><div class="results-emoji">${emoji}</div><div class="results-score">${score}/${quizData.length}</div><div class="results-msg">${msg}</div><div class="results-percent">النسبة: ${pct.toFixed(0)}%</div></div>`;
-r.classList.remove('hidden');
-r.scrollIntoView({behavior:'smooth'});
-localStorage.setItem('quizScore',score);
-localStorage.setItem('quizTotal',quizData.length);
-playSound(pct>=60?'success':'error');
-}
-
-function updateCert(){
-document.getElementById('certName').textContent=studentName||'الطالب';
-const score=localStorage.getItem('quizScore')||0;
-const total=localStorage.getItem('quizTotal')||30;
-const pct=(score/total)*100;
-let eval='';
-if(pct>=90)eval='تميز وإتقان رائع! 🌟';
-else if(pct>=75)eval='أداء ممتاز! ⭐';
-else if(pct>=60)eval='أداء جيد! 👏';
-else eval='بحاجة لمزيد من المراجعة 📚';
-document.getElementById('certScore').textContent=`الدرجة: ${score}/${total}`;
-document.getElementById('certEval').textContent=eval;
-const today=new Date();
-const dateStr=today.toLocaleDateString('ar-SA',{year:'numeric',month:'long',day:'numeric'});
-document.getElementById('certDate').textContent='التاريخ: '+dateStr;
-}
+function updateCert(){document.getElementById('certName').textContent=studentName||'الطالب';var sc=parseInt(localStorage.getItem('quizScore'))||0;var t=parseInt(localStorage.getItem('quizTotal'))||30;var pct=(sc/t)*100;var ev='';if(pct>=90)ev='تميز وإتقان رائع! 🌟';else if(pct>=75)ev='أداء ممتاز! ⭐';else if(pct>=60)ev='أداء جيد! 👏';else ev='بحاجة لمزيد من المراجعة 📚';document.getElementById('certScore').textContent='الدرجة: '+sc+'/'+t;document.getElementById('certEval').textContent=ev;var d=new Date();document.getElementById('certDate').textContent='التاريخ: '+d.toLocaleDateString('ar-SA',{year:'numeric',month:'long',day:'numeric'})}
 </script>
 
 </body>
