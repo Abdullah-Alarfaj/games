@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>مراجعة لغتي - مجالس علم</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#0F6938,#1a8c4e);min-height:100vh;padding:8px;color:#2C3E50;line-height:1.4;font-size:13px}
+.container{max-width:100%;margin:0 auto;background:#FFF;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.3)}
+.home-section{background:linear-gradient(135deg,#0F6938,#1a8c4e);color:#FFF;padding:20px 12px;text-align:center}
+.school-logo{font-size:2em;margin-bottom:8px}
+.home-title{font-size:1.4em;margin-bottom:8px}
+.student-name{font-size:1.1em;margin:10px 0;background:rgba(255,255,255,.3);padding:10px 15px;border-radius:10px;display:inline-block}
+.motivation{font-size:.85em;margin:10px 0;line-height:1.3}
+.nav-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:15px;padding:12px}
+.nav-btn{background:#FFF;color:#0F6938;padding:12px;border:none;border-radius:10px;font-size:.9em;font-weight:bold;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.2);line-height:1.3}
+.nav-btn:active{transform:scale(.98)}
+.section{display:none;padding:12px}
+.section.active{display:block}
+.section-header{background:linear-gradient(135deg,#0F6938,#1a8c4e);color:#FFF;padding:15px 10px;border-radius:10px;margin-bottom:12px;text-align:center}
+.section-title{font-size:1.2em;margin-bottom:6px}
+.progress-bar{background:rgba(255,255,255,.3);height:18px;border-radius:9px;margin-top:8px;overflow:hidden}
+.progress-fill{background:#FFC107;height:100%;width:0;border-radius:9px;transition:width .5s;display:flex;align-items:center;justify-content:center;color:#2C3E50;font-weight:bold;font-size:.75em}
+.score-display{background:#FFF;color:#0F6938;padding:6px 12px;border-radius:8px;margin-top:8px;display:inline-block;font-size:.85em;font-weight:bold}
+.back-btn{background:#FFF;color:#0F6938;padding:10px 20px;border:none;border-radius:8px;font-size:.9em;font-weight:bold;cursor:pointer;margin-top:12px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.back-btn:active{transform:scale(.98)}
+.card{background:#FFF;border:2px solid #0F6938;border-radius:10px;padding:12px;margin:10px 0;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+.card-title{color:#0F6938;font-size:1.1em;margin-bottom:10px;border-bottom:2px solid #FFC107;padding-bottom:6px}
+.text-box{background:#E8F5E9;padding:12px;border-radius:8px;margin:10px 0;border-right:3px solid #0F6938;font-size:.85em;line-height:1.5}
+.highlight{background:#FFF9C4;padding:2px 4px;border-radius:3px;font-weight:bold}
+.table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.75em}
+.table th{background:#0F6938;color:#FFF;padding:8px 4px;border:1px solid #0d5a2e;font-size:.9em}
+.table td{padding:6px 4px;border:1px solid #E0E0E0;text-align:center}
+.table tr:nth-child(even){background:#E8F5E9}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
+.flip-card{perspective:1000px;height:120px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:8px;font-size:.95em;font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,.2);text-align:center;line-height:1.2}
+.flip-front{background:linear-gradient(135deg,#0F6938,#1a8c4e);color:#FFF}
+.flip-back{background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#FFF;transform:rotateY(180deg);font-size:.8em;padding:6px}
+.reading-text{background:#FFF9C4;padding:12px;border-radius:10px;border:2px solid #FFC107;font-size:.85em;line-height:1.6;text-align:justify}
+.exercise{background:#E8F5E9;padding:12px;border-radius:10px;margin:10px 0;border:2px solid #0F6938}
+.question{font-size:.9em;margin-bottom:10px;font-weight:bold;color:#0d5a2e}
+.options{display:grid;grid-template-columns:1fr;gap:6px;margin:8px 0}
+.option{background:#FFF;border:2px solid #0F6938;padding:8px 12px;border-radius:8px;font-size:.85em;cursor:pointer;text-align:center;font-weight:600;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.option:active:not(:disabled){transform:scale(.98)}
+.option.correct{background:#4CAF50;color:#FFF;border-color:#4CAF50}
+.option.wrong{background:#f44336;color:#FFF;border-color:#f44336}
+.option:disabled{opacity:.7}
+.feedback{margin-top:10px;padding:10px;border-radius:8px;font-size:.8em;font-weight:bold;text-align:center;display:none;line-height:1.3}
+.feedback.success{background:#C8E6C9;color:#2E7D32;border:2px solid #4CAF50}
+.feedback.error{background:#FFCDD2;color:#C62828;border:2px solid #f44336}
+.quiz-q{background:#FFF;padding:12px;border-radius:10px;margin:10px 0;border:2px solid #0F6938;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+.q-number{background:#0F6938;color:#FFF;padding:5px 10px;border-radius:6px;display:inline-block;margin-bottom:8px;font-weight:bold;font-size:.8em}
+.quiz-options{display:grid;gap:6px;margin:8px 0}
+.quiz-option{background:#E8F5E9;padding:8px;border-radius:6px;cursor:pointer;border:2px solid transparent;font-size:.8em}
+.quiz-option:active{background:#FFF9C4;border-color:#FFC107}
+.quiz-option input{margin-left:8px;transform:scale(1.1)}
+.submit-quiz{background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#FFF;padding:12px 35px;border:none;border-radius:10px;font-size:1em;font-weight:bold;cursor:pointer;display:block;margin:15px auto;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.submit-quiz:active{transform:scale(.98)}
+.quiz-results{background:#FFF;padding:20px 12px;border-radius:10px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.final-score{font-size:2.5em;color:#0F6938;margin:12px 0;font-weight:bold}
+.certificate{background:#FFF;padding:25px 12px;border:8px double #0F6938;border-radius:12px;text-align:center;margin:15px auto;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.cert-title{font-size:1.5em;color:#0F6938;margin:15px 0}
+.cert-name{font-size:1.3em;color:#4CAF50;margin:12px 0;border-bottom:2px solid #0F6938;padding-bottom:8px;display:inline-block}
+.print-btn{background:#FFC107;color:#2C3E50;padding:10px 25px;border:none;border-radius:8px;font-size:.9em;font-weight:bold;cursor:pointer;margin:12px;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.print-btn:active{transform:scale(.98)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div id="home" class="section active">
+<div class="home-section">
+<div class="school-logo">🏫</div>
+<h1 class="home-title">مراجعة لغتي الجميلة</h1>
+<h2 style="font-size:1.2em;margin:10px 0">مجالس علم</h2>
+<div class="student-name">👨‍🎓 عبدالله العرفج</div>
+<p class="motivation">مراجعة شاملة حسب خطة مدارس التربية الإسلامية</p>
+<div class="nav-grid">
+<button class="nav-btn" onclick="showSection('lesson')">📖 نص مجالس علم<br><small>الفهم القرائي</small></button>
+<button class="nav-btn" onclick="showSection('vocabulary')">📚 الكلمات والمعاني<br><small>المرادفات والأضداد</small></button>
+<button class="nav-btn" onclick="showSection('relations')">🔢 العلاقات اللغوية<br><small>المفرد والجمع</small></button>
+<button class="nav-btn" onclick="showSection('istifham')">❓ أسلوب الاستفهام<br><small>الأسلوب اللغوي</small></button>
+<button class="nav-btn" onclick="showSection('spelling')">✍️ الألف اللينة<br><small>الظاهرة الإملائية</small></button>
+<button class="nav-btn" onclick="showSection('grammar')">📝 المفعول المطلق<br><small>الوظيفة النحوية</small></button>
+<button class="nav-btn" onclick="showSection('quiz')">📝 الاختبار الشامل<br><small>25 سؤال</small></button>
+<button class="nav-btn" onclick="showSection('certificate')">🏆 شهادة الإنجاز</button>
+</div>
+</div>
+</div>
+
+<div id="lesson" class="section">
+<div class="section-header">
+<h2 class="section-title">📖 مجالس علم</h2>
+<p style="font-size:.85em">الصفحات 41-50</p>
+<div class="score-display" id="lessonScore">النقاط: 0 / 6</div>
+<div class="progress-bar"><div class="progress-fill" id="lessonProgress">0%</div></div>
+</div>
+<div class="card">
+<h3 class="card-title">📝 النص</h3>
+<div class="reading-text">
+<p>كان للعرب <span class="highlight">مجالس علم</span> يجتمعون فيها، <span class="highlight">يتذاكرون</span> علومهم المختلفة، و<span class="highlight">يتنافسون</span> في إظهار معارفهم.</p>
+<p>من أشهر هذه المجالس <span class="highlight">مجلس المأمون</span>، الذي كان يضم كبار العلماء في عصره.</p>
+<p>في أحد هذه المجالس، تناظر العلماء في <span class="highlight">الشواهد النحوية</span>، فقال أحدهم: حفظ <span class="highlight">علي بن المبارك أربعين ألفًا</span> من الشواهد النحوية.</p>
+<p>وتأتي مرحلة <span class="highlight">الفتوة</span> قبل مرحلة <span class="highlight">الكهولة</span> في حياة الإنسان.</p>
+<p>وقد شبه الرسول صلى الله عليه وسلم <span class="highlight">شجرة النخلة</span> بالمسلم.</p>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">🎯 المعلومات الرئيسية</h3>
+<table class="table">
+<tr><th>العنصر</th><th>التفاصيل</th></tr>
+<tr><td>مجالس العرب</td><td>للتذاكر والتنافس</td></tr>
+<tr><td>أشهر المجالس</td><td>مجلس المأمون</td></tr>
+<tr><td>علي بن المبارك</td><td>حفظ 40,000 شاهد</td></tr>
+<tr><td>الفتوة</td><td>قبل الكهولة</td></tr>
+<tr><td>النبي ﷺ</td><td>شبه النخلة بالمسلم</td></tr>
+</table>
+</div>
+<div class="card">
+<h3 class="card-title">📋 أسئلة الفهم</h3>
+<div id="lessonQuestions"></div>
+</div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="vocabulary" class="section">
+<div class="section-header">
+<h2 class="section-title">📚 الكلمات والمعاني</h2>
+<p style="font-size:.85em">اضغط على البطاقة!</p>
+<div class="score-display" id="vocabScore">النقاط: 0 / 5</div>
+<div class="progress-bar"><div class="progress-fill" id="vocabProgress">0%</div></div>
+</div>
+<div class="card">
+<h3 class="card-title">🎴 بطاقات تفاعلية</h3>
+<div class="vocab-grid" id="vocabGrid"></div>
+</div>
+<div class="card">
+<h3 class="card-title">✏️ تمرين</h3>
+<div id="vocabExercises"></div>
+</div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="relations" class="section">
+<div class="section-header">
+<h2 class="section-title">🔢 العلاقات اللغوية</h2>
+<p style="font-size:.85em">المفرد - المثنى - الجمع</p>
+<div class="score-display" id="relScore">النقاط: 0 / 5</div>
+<div class="progress-bar"><div class="progress-fill" id="relProgress">0%</div></div>
+</div>
+<div class="card">
+<h3 class="card-title">📌 القاعدة</h3>
+<div class="text-box">
+<p><strong>المفرد:</strong> واحد → مجلس</p>
+<p><strong>المثنى:</strong> اثنان → مجلسان</p>
+<p><strong>الجمع:</strong> أكثر → مجالس</p>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">✏️ تدريبات</h3>
+<div id="relationsEx"></div>
+</div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="istifham" class="section">
+<div class="section-header">
+<h2 class="section-title">❓ أسلوب الاستفهام</h2>
+<p style="font-size:.85em">ص 51-53 | ملزمة 5-6</p>
+<div class="score-display" id="istScore">النقاط: 0 / 8</div>
+<div class="progress-bar"><div class="progress-fill" id="istProgress">0%</div></div>
+</div>
+<div class="card">
+<h3 class="card-title">📌 التعريف</h3>
+<div class="text-box">
+<p><strong>أسلوب الاستفهام:</strong> السؤال لمعرفة شيء.</p>
+<p><strong>الأدوات:</strong> من - ما - متى - أين - كيف - لماذا - هل - كم</p>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">🔍 الأدوات</h3>
+<table class="table">
+<tr><th>الأداة</th><th>الاستخدام</th></tr>
+<tr><td>من</td><td>العاقل</td></tr>
+<tr><td>ما</td><td>غير العاقل</td></tr>
+<tr><td>متى</td><td>الزمان</td></tr>
+<tr><td>أين</td><td>المكان</td></tr>
+<tr><td>كيف</td><td>الحال</td></tr>
+<tr><td>لماذا</td><td>السبب</td></tr>
+<tr><td>هل</td><td>نعم/لا</td></tr>
+<tr><td>كم</td><td>العدد</td></tr>
+</table>
+</div>
+<div class="card">
+<h3 class="card-title">✏️ تدريبات</h3>
+<div id="istifhamEx"></div>
+</div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="spelling" class="section">
+<div class="section-header">
+<h2 class="section-title">✍️ الألف اللينة</h2>
+<p style="font-size:.85em">ص 67-75 | ملزمة 16-18</p>
+<div class="score-display" id="spellScore">النقاط: 0 / 8</div>
+<div class="progress-bar"><div class="progress-fill" id="spellProgress">0%</div></div>
+</div>
+<div class="card">
+<h3 class="card-title">📌 القواعد</h3>
+<div class="text-box">
+<h4 style="color:#0F6938;font-size:1em;margin-bottom:6px">1️⃣ الفعل الثلاثي:</h4>
+<p><strong>أصلها ياء → ى</strong></p>
+<p>رمى (يرمي) - سعى (يسعى)</p>
+<p><strong>أصلها واو → ا</strong></p>
+<p>دعا (يدعو) - عفا (يعفو)</p>
+</div>
+<div class="text-box">
+<h4 style="color:#0F6938;font-size:1em;margin-bottom:6px">2️⃣ الاسم غير الثلاثي:</h4>
+<p><strong>لم يسبقها ياء → ى</strong></p>
+<p>مستشفى - ليلى</p>
+<p><strong>سبقها ياء → ا</strong></p>
+<p>دنيا - هدايا</p>
+</div>
+<div class="text-box">
+<h4 style="color:#0F6938;font-size:1em;margin-bottom:6px">3️⃣ الحرف:</h4>
+<p>معظم الحروف → ا</p>
+<p>ماعدا: حتى - على - بلى - إلى</p>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">✏️ تدريبات</h3>
+<div id="spellingEx"></div>
+</div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="grammar" class="section">
+<div class="section-header">
+<h2 class="section-title">📝 المفعول المطلق</h2>
+<p style="font-size:.85em">ص 83-86 | ملزمة 23-25</p>
+<div class="score-display" id="gramScore">النقاط: 0 / 8</div>
+<div class="progress-bar"><div class="progress-fill" id="gramProgress">0%</div></div>
+</div>
+<div class="card">
+<h3 class="card-title">📌 التعريف</h3>
+<div class="text-box">
+<p><strong>المفعول المطلق:</strong> اسم منصوب من لفظ الفعل.</p>
+<p><strong>علامة نصبه:</strong> الفتحة</p>
+<p><strong>مثال:</strong> فهمتُ فهمًا</p>
+<p>الإعراب: مفعول مطلق منصوب بالفتحة</p>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">📋 أمثلة</h3>
+<table class="table">
+<tr><th>الجملة</th><th>المفعول</th></tr>
+<tr><td>ساهم مساهمةً</td><td>مساهمةً</td></tr>
+<tr><td>يفوز فوزًا</td><td>فوزًا</td></tr>
+<tr><td>كلّم تكليمًا</td><td>تكليمًا</td></tr>
+<tr><td>مشيتُ مشيًا</td><td>مشيًا</td></tr>
+</table>
+</div>
+<div class="card">
+<h3 class="card-title">✏️ تدريبات</h3>
+<div id="grammarEx"></div>
+</div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="quiz" class="section">
+<div class="section-header">
+<h2 class="section-title">📝 الاختبار الشامل</h2>
+<p style="font-size:.85em">25 سؤال - بالتوفيق!</p>
+</div>
+<div id="quizContainer"></div>
+<button class="submit-quiz" onclick="submitQuiz()">📊 احسب درجتي</button>
+<div id="quizResults" style="display:none"></div>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+<div id="certificate" class="section">
+<div class="section-header">
+<h2 class="section-title">🏆 شهادة الإنجاز</h2>
+</div>
+<div class="certificate">
+<h2 class="cert-title">شهادة تقدير</h2>
+<p style="font-size:.85em;margin:10px 0">تُمنح للطالب المتميز</p>
+<h3 class="cert-name">عبدالله العرفج</h3>
+<p style="font-size:.8em;margin:12px 0">لإتمامه مراجعة<br><strong style="color:#0F6938">مجالس علم</strong><br>لغتي الجميلة</p>
+<div style="font-size:1.3em;margin:12px 0;color:#0F6938;font-weight:bold" id="certScore">الدرجة: -- / 25</div>
+<div style="font-size:.85em;color:#666;margin:10px 0" id="certDate"></div>
+<p style="font-size:.95em;margin:15px 0;color:#4CAF50;font-weight:bold" id="certMsg">واصل تميزك!</p>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ طباعة</button>
+<button class="back-btn" onclick="showSection('home')">⬅️ العودة</button>
+</div>
+
+</div>
+
+<script>
+var DATA={
+vocab:[
+{word:'مجالس',meaning:'جمع مجلس',single:'مجلس'},
+{word:'يتذاكرون',meaning:'يتدارسون'},
+{word:'يتنافسون',meaning:'يتسابقون',opposite:'يتعاونون'},
+{word:'المأمون',meaning:'الخليفة العباسي'},
+{word:'الشواهد',meaning:'الأمثلة النحوية',single:'الشاهد'},
+{word:'النحوية',meaning:'المتعلقة بالنحو'},
+{word:'الفتوة',meaning:'الشباب',opposite:'الكهولة'},
+{word:'الكهولة',meaning:'ما بعد الشباب',opposite:'الفتوة'},
+{word:'تأتي',meaning:'تجيء',opposite:'تذهب'},
+{word:'شبه',meaning:'قارن',opposite:'فرّق'},
+{word:'النخلة',meaning:'شجرة التمر',plural:'النخيل'},
+{word:'مثل',meaning:'شبيه',opposite:'مختلف'}
+],
+lessonQ:[
+{q:'كم شاهدًا حفظ علي بن المبارك؟',o:['40','4000','40000','400'],a:2,e:'40,000!'},
+{q:'أشهر مجالس العلم:',o:['المنصور','المأمون','هارون','المتوكل'],a:1,e:'المأمون!'},
+{q:'قبل الكهولة:',o:['الطفولة','الفتوة','الشيخوخة','المراهقة'],a:1,e:'الفتوة!'},
+{q:'شبه النبي النخلة بـ:',o:['الكافر','المسلم','المنافق','العالم'],a:1,e:'المسلم!'},
+{q:'كان العلماء:',o:['يتجادلون','يتذاكرون ويتنافسون','يأكلون','يلعبون'],a:1,e:'يتذاكرون!'},
+{q:'الفكرة الرئيسية:',o:['المأمون','مجالس العلم','علي','النخلة'],a:1,e:'مجالس العلم!'}
+],
+vocabExQ:[
+{q:'مرادف "يتذاكرون":',o:['يتجادلون','يتدارسون','يتنافسون','يتحاورون'],a:1,e:'يتدارسون'},
+{q:'ضد "الفتوة":',o:['الشباب','الطفولة','الكهولة','الصبا'],a:2,e:'الكهولة'},
+{q:'مرادف "شبه":',o:['خالف','فرّق','قارن','باعد'],a:2,e:'قارن'},
+{q:'ضد "يتنافسون":',o:['يتعاونون','يتجادلون','يتذاكرون','يتحاورون'],a:0,e:'يتعاونون'},
+{q:'مرادف "تأتي":',o:['تذهب','تجيء','تبعد','تخرج'],a:1,e:'تجيء'}
+],
+relationsQ:[
+{q:'جمع "مجلس":',o:['مجلسون','مجالس','أمجلس','مجلسات'],a:1,e:'مجالس'},
+{q:'مفرد "الشواهد":',o:['الشهيد','الشاهد','المشهد','الشهادة'],a:1,e:'الشاهد'},
+{q:'جمع "النخلة":',o:['النخل','النخيل','نخيلات','أنخال'],a:1,e:'النخيل'},
+{q:'مفرد "علماء":',o:['علم','عالم','معلم','تعليم'],a:1,e:'عالم'},
+{q:'نوع "مجالس":',o:['مفرد','مثنى','جمع','فعل'],a:2,e:'جمع'}
+],
+istifhamQ:[
+{q:'أداة العاقل:',o:['ما','من','متى','كيف'],a:1,e:'من'},
+{q:'أداة المكان:',o:['متى','أين','كيف','لماذا'],a:1,e:'أين'},
+{q:'أداة الزمان:',o:['من','ما','متى','أين'],a:2,e:'متى'},
+{q:'أداة العدد:',o:['كم','كيف','لماذا','هل'],a:0,e:'كم'},
+{q:'.... حفظ؟',o:['ما','متى','من','أين'],a:2,e:'من'},
+{q:'.... كانت؟',o:['أين','من','متى','كيف'],a:2,e:'متى'},
+{q:'.... شبه؟',o:['بمن','بماذا','بما','بأين'],a:2,e:'بما'},
+{q:'.... شاهدًا؟',o:['من','ما','كم','متى'],a:2,e:'كم'}
+],
+spellingQ:[
+{q:'الصحيحة:',o:['المستشفا','المستشفى','المستشفي','المستشفاء'],a:1,e:'مستشفى'},
+{q:'الصحيحة:',o:['على','علا','علي','عل'],a:0,e:'على'},
+{q:'الصحيحة:',o:['أتا','أتى','أتي','آتا'],a:1,e:'أتى'},
+{q:'الصحيحة:',o:['رما','رمى','رمي','رمآ'],a:1,e:'رمى'},
+{q:'الصحيحة:',o:['دعا','دعى','دعي','دعآ'],a:0,e:'دعا'},
+{q:'الصحيحة:',o:['دنيا','دنيى','دنيآ','دنية'],a:0,e:'دنيا'},
+{q:'في الثلاثي (ى) أصلها:',o:['واو','ياء','همزة','تاء'],a:1,e:'ياء'},
+{q:'الصحيحة:',o:['مشا','مشى','مشي','مشآ'],a:1,e:'مشى'}
+],
+grammarQ:[
+{q:'المفعول في "مشيتُ مشيًا":',o:['مشيتُ','مشيًا','سريعًا','أنا'],a:1,e:'مشيًا'},
+{q:'المفعول في "فهمتُ فهمًا":',o:['فهمتُ','الدرسَ','فهمًا','أنا'],a:2,e:'فهمًا'},
+{q:'المفعول في "ساهم مساهمةً":',o:['ساهم','مساهمةً','عظيمةً','المحسن'],a:1,e:'مساهمةً'},
+{q:'المفعول منصوب بـ:',o:['الضمة','الفتحة','الكسرة','السكون'],a:1,e:'الفتحة'},
+{q:'وثب .... مباغتًا',o:['وثب','وثبًا','يثب','اوثب'],a:1,e:'وثبًا'},
+{q:'صام .... كاملاً',o:['صيام','صيامًا','يصوم','صُم'],a:1,e:'صيامًا'},
+{q:'إعراب "فهمًا":',o:['فاعل','مفعول به','مفعول مطلق','مبتدأ'],a:2,e:'مفعول مطلق'},
+{q:'ساهم .... عظيمة',o:['مساهمة','مساهمةً','يساهم','ساهِم'],a:1,e:'مساهمةً'}
+],
+quizData:[
+{q:'من حفظ 40,000؟',o:['المأمون','علي بن المبارك','ابن سينا','الخليل'],a:1},
+{q:'كم شاهدًا؟',o:['40','4000','40000','400'],a:2},
+{q:'قبل الكهولة:',o:['الطفولة','الفتوة','الشيخوخة','المراهقة'],a:1},
+{q:'شبه النبي النخلة بـ:',o:['الكافر','المسلم','المنافق','الفاسق'],a:1},
+{q:'أشهر المجالس:',o:['المأمون','هارون','المنصور','المتوكل'],a:0},
+{q:'مرادف "يتذاكرون":',o:['يتنافسون','يتدارسون','يتحاورون','يتجادلون'],a:1},
+{q:'ضد "الفتوة":',o:['الطفولة','الكهولة','الشباب','الصبا'],a:1},
+{q:'جمع "مجلس":',o:['مجلسون','مجالس','أمجلس','مجلسات'],a:1},
+{q:'مفرد "الشواهد":',o:['الشهيد','الشاهد','المشهد','الشهادة'],a:1},
+{q:'أداة العاقل:',o:['ما','من','كيف','هل'],a:1},
+{q:'.... كانت؟',o:['أين','من','متى','كيف'],a:2},
+{q:'.... حفظ؟',o:['ما','من','متى','هل'],a:1},
+{q:'أداة العدد:',o:['كيف','كم','لماذا','هل'],a:1},
+{q:'الصحيحة:',o:['المستشفا','المستشفى','المستشفي','المستشفاء'],a:1},
+{q:'الصحيحة:',o:['على','علا','علي','عل'],a:0},
+{q:'الصحيحة:',o:['رما','رمى','رمي','رمآ'],a:1},
+{q:'الصحيحة:',o:['دعا','دعى','دعي','دعآ'],a:0},
+{q:'المفعول "مشيتُ مشيًا":',o:['مشيتُ','مشيًا','سريعًا','أنا'],a:1},
+{q:'المفعول "فهمتُ فهمًا":',o:['فهمتُ','الدرسَ','فهمًا','أنا'],a:2},
+{q:'المفعول منصوب بـ:',o:['الضمة','الفتحة','الكسرة','السكون'],a:1},
+{q:'صام .... كاملاً',o:['صيام','صيامًا','يصوم','صُم'],a:1},
+{q:'ساهم .... عظيمة',o:['مساهمة','مساهمةً','يساهم','ساهِم'],a:1},
+{q:'إعراب "فهمًا":',o:['فاعل','مفعول به','مفعول مطلق','مبتدأ'],a:2},
+{q:'في الثلاثي (ى) أصلها:',o:['واو','ياء','همزة','تاء'],a:1},
+{q:'الفكرة الرئيسية:',o:['المأمون','مجالس العلم','علي','النخلة'],a:1}
+]
+};
+
+var scores={lesson:0,vocab:0,relations:0,istifham:0,spelling:0,grammar:0};
+
+function showSection(id){
+document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active')});
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+if(id==='lesson')initLesson();
+if(id==='vocabulary')initVocab();
+if(id==='relations')initRelations();
+if(id==='istifham')initIstifham();
+if(id==='spelling')initSpelling();
+if(id==='grammar')initGrammar();
+if(id==='quiz')initQuiz();
+if(id==='certificate')updateCert();
+}
+
+function playSound(type){
+try{
+var ctx=new(window.AudioContext||window.webkitAudioContext)();
+var osc=ctx.createOscillator();
+var gain=ctx.createGain();
+osc.connect(gain);
+gain.connect(ctx.destination);
+osc.frequency.value=type==='correct'?800:200;
+gain.gain.setValueAtTime(0.3,ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.3);
+osc.start(ctx.currentTime);
+osc.stop(ctx.currentTime+0.3);
+}catch(e){}
+}
+
+function updateProgress(section,score,total){
+var pct=(score/total)*100;
+document.getElementById(section+'Score').textContent='النقاط: '+score+' / '+total;
+document.getElementById(section+'Progress').style.width=pct+'%';
+document.getElementById(section+'Progress').textContent=pct.toFixed(0)+'%';
+}
+
+function checkAns(type,qi,oi,qArr,section){
+var q=qArr[qi];
+var opts=document.getElementById(type+'opt'+qi);
+var fb=document.getElementById(type+'fb'+qi);
+var btns=opts.querySelectorAll('.option');
+btns.forEach(function(b){b.disabled=true});
+if(oi===q.a){
+btns[oi].classList.add('correct');
+fb.className='feedback success';
+fb.textContent='✅ '+q.e;
+playSound('correct');
+scores[section]++;
+}else{
+btns[oi].classList.add('wrong');
+btns[q.a].classList.add('correct');
+fb.className='feedback error';
+fb.textContent='الصحيح: '+q.o[q.a];
+playSound('wrong');
+}
+fb.style.display='block';
+updateProgress(section,scores[section],qArr.length);
+}
+
+function createEx(qArr,type,section){
+var c=document.getElementById(type);
+c.innerHTML='';
+qArr.forEach(function(q,i){
+var ex=document.createElement('div');
+ex.className='exercise';
+var html='<div class="question">'+(i+1)+'. '+q.q+'</div><div class="options" id="'+type+'opt'+i+'">';
+q.o.forEach(function(opt,j){
+html+='<button class="option" onclick="checkAns(\''+type+'\','+i+','+j+',DATA.'+section+'Q,\''+section+'\')">'+opt+'</button>';
+});
+html+='</div><div id="'+type+'fb'+i+'" class="feedback"></div>';
+ex.innerHTML=html;
+c.appendChild(ex);
+});
+}
+
+function initLesson(){
+scores.lesson=0;
+updateProgress('lesson',0,DATA.lessonQ.length);
+createEx(DATA.lessonQ,'lessonQuestions','lesson');
+}
+
+function initVocab(){
+scores.vocab=0;
+updateProgress('vocab',0,DATA.vocabExQ.length);
+var grid=document.getElementById('vocabGrid');
+grid.innerHTML='';
+DATA.vocab.forEach(function(item){
+var card=document.createElement('div');
+card.className='flip-card';
+var back=item.meaning;
+if(item.opposite)back+='<br><small>ضد: '+item.opposite+'</small>';
+if(item.single)back+='<br><small>مفرد: '+item.single+'</small>';
+if(item.plural)back+='<br><small>جمع: '+item.plural+'</small>';
+card.innerHTML='<div class="flip-inner"><div class="flip-front">'+item.word+'</div><div class="flip-back">'+back+'</div></div>';
+card.onclick=function(){this.classList.toggle('flipped');playSound('correct');};
+grid.appendChild(card);
+});
+createEx(DATA.vocabExQ,'vocabExercises','vocab');
+}
+
+function initRelations(){
+scores.relations=0;
+updateProgress('rel',0,DATA.relationsQ.length);
+createEx(DATA.relationsQ,'relationsEx','relations');
+}
+
+function initIstifham(){
+scores.istifham=0;
+updateProgress('ist',0,DATA.istifhamQ.length);
+createEx(DATA.istifhamQ,'istifhamEx','istifham');
+}
+
+function initSpelling(){
+scores.spelling=0;
+updateProgress('spell',0,DATA.spellingQ.length);
+createEx(DATA.spellingQ,'spellingEx','spelling');
+}
+
+function initGrammar(){
+scores.grammar=0;
+updateProgress('gram',0,DATA.grammarQ.length);
+createEx(DATA.grammarQ,'grammarEx','grammar');
+}
+
+function initQuiz(){
+var c=document.getElementById('quizContainer');
+c.innerHTML='';
+DATA.quizData.forEach(function(q,i){
+var div=document.createElement('div');
+div.className='quiz-q';
+var html='<div class="q-number">السؤال '+(i+1)+'</div><div class="question">'+q.q+'</div><div class="quiz-options">';
+q.o.forEach(function(opt,j){
+html+='<label class="quiz-option"><input type="radio" name="q'+i+'" value="'+j+'">'+opt+'</label>';
+});
+html+='</div>';
+div.innerHTML=html;
+c.appendChild(div);
+});
+document.getElementById('quizResults').style.display='none';
+}
+
+function submitQuiz(){
+var score=0;
+DATA.quizData.forEach(function(q,i){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(sel&&parseInt(sel.value)===q.a)score++;
+});
+var pct=(score/DATA.quizData.length)*100;
+var msg='',emoji='';
+if(pct>=90){msg='ممتاز!';emoji='🏆';}
+else if(pct>=75){msg='رائع!';emoji='⭐';}
+else if(pct>=60){msg='جيد!';emoji='👍';}
+else{msg='راجع الدرس';emoji='📚';}
+var r=document.getElementById('quizResults');
+r.innerHTML='<div class="quiz-results"><div style="font-size:2.5em">'+emoji+'</div><div class="final-score">'+score+'/'+DATA.quizData.length+'</div><div style="font-size:1.2em;margin:12px 0;color:#0F6938;font-weight:bold">'+msg+'</div><div style="font-size:1em;margin:10px 0">النسبة: '+pct.toFixed(0)+'%</div></div>';
+r.style.display='block';
+r.scrollIntoView({behavior:'smooth'});
+localStorage.setItem('quizScore',score);
+localStorage.setItem('quizTotal',DATA.quizData.length);
+playSound(pct>=60?'correct':'wrong');
+}
+
+function updateCert(){
+var score=localStorage.getItem('quizScore')||0;
+var total=localStorage.getItem('quizTotal')||25;
+var pct=(score/total)*100;
+var msg='';
+if(pct>=90)msg='تميز رائع!';
+else if(pct>=75)msg='ممتاز!';
+else if(pct>=60)msg='جيد!';
+else msg='ابذل المزيد!';
+document.getElementById('certScore').textContent='الدرجة: '+score+'/'+total;
+document.getElementById('certMsg').textContent=msg;
+var today=new Date();
+var dateStr=today.toLocaleDateString('ar-SA',{year:'numeric',month:'long',day:'numeric'});
+document.getElementById('certDate').textContent='التاريخ: '+dateStr;
+}
+</script>
+</body>
+</html>
